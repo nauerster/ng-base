@@ -1,0 +1,131 @@
+// ==========================================================================
+// Helper Classes
+// ==========================================================================
+
+%pseudos
+  content: ''
+  display: block
+  position: absolute
+
+// allow words to break at arbitrary points
+
+%word-wrap
+  word-wrap: break-word
+
+%text-off-screen
+  text-indent: -9999px
+  color: transparent
+
+%border-radius-none
+  border: 0
+  +radius(0)
+
+// prevent background from drawing below the border
+
+%bg-clip
+  background-clip: padding-box
+
+// include border & padding properties into the final width and/or height of an element
+
+%box-sizing
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
+// capitalize everything
+
+%all-caps
+  font-weight: 600
+  // letter-spacing: .06em
+  text-transform: uppercase
+
+// margin/padding reset
+
+%mp-reset
+  margin: 0 !important
+  padding: 0 !important
+
+// clearfix
+
+%clearfix
+  *zoom: 1
+
+  &:before,
+  &:after
+    content: ''
+    display: table
+
+  &:after
+    clear: both
+
+// make elements block
+%block
+  display: block
+
+// image replacement
+
+%ir
+  background-color: transparent
+  border: 0
+  overflow: hidden
+  *text-indent: -9999px
+
+  +pseudo-el(before, 0, 150%)
+
+// kill list defaults
+
+%no-bullets
+  list-style: none
+  margin-top: 0
+  margin-left: 0
+  padding-left: 0
+
+// make sure container is [position: relative]
+// http://codepen.io/shshaw/full/gEiDt
+
+%absolute-center
+  width: 50%
+  height: 50%
+  overflow: auto
+  margin: auto
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+
+
+// hide from both screenreaders and browsers: h5bp.com/u
+
+%hidden
+  display: none !important
+  visibility: hidden
+
+// hide only visually, but have it available for screenreaders: h5bp.com/v
+
+%visuallyhidden
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+
+  // extends the .visuallyhidden class to allow the element to be focusable
+  // when navigated to via the keyboard: h5bp.com/p
+
+  &.focusable:active,
+  &.focusable:focus
+    clip: auto
+    height: auto
+    margin: 0
+    overflow: visible
+    position: static
+    width: auto
+
+// hide visually and from screenreaders, but maintain layout
+
+%invisible
+  visibility: hidden

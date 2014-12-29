@@ -1,0 +1,69 @@
+# humanstxt.org
+# The humans responsible & technology colophon
+
+Created by
+Eric Knauer
+San Diego, CA
+GitHub: nauerster
+twitter: @nauerster
+
+
+
+/* CREDITS */
+
+Mina Markham
+https://github.com/minamarkham
+
+BEM Crew
+https://bem.info/
+
+Scalable and Modular Architecture for CSS
+http://smacss.com/book
+
+Lemanz
+https://github.com/grayghostvisuals/lemanz
+
+HTML5 Boilerplate]
+https://github.com/h5bp/html5-boilerplate
+
+Jake Archibald
+http://jakearchibald.github.com/sass-ie/
+
+Harry Roberts
+http://cssguidelin.es/
+
+Jen Simmons' Design Starterkit
+https://github.com/jensimmons/designstarterkit
+
+
+/* FRAMEWORKS */
+
+AngularJS
+https://angularjs.org/
+
+Sass 3.3
+http://sass-lang.com/
+
+Normalize
+http://necolas.github.com/normalize.css
+A clean and simple reset. Only contains the bare minimum of what's needed.
+
+jQuery, http://jquery.com
+Javascript made easy.
+
+Modernizr, http://modernizr.com
+Selectivizr, http://selectivizr.com
+They are good tools for helping with backwards compatibility. I'm probably not using them right.
+
+Pesticide.io
+http://pesticide.io
+Faster CSS layout debugging
+
+
+/* INSPIRATION */
+
+https://material.angularjs.org/#/
+http://codepen.io
+http://tympanus.net/codrops/
+http://prismjs.com/
+

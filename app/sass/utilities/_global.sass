@@ -1,0 +1,153 @@
+// ==========================================================================
+// Global Variables
+// ==========================================================================
+
+
+// CSS layout debugging
+// @link http://pesticide.io/
+
+
+$pesticide-debug                       : false
+
+
+// Define width for browsers w/out media query support
+// @link http://jakearchibald.github.com/sass-ie/
+
+
+//$fix-mqs                              : false !default
+
+
+// Turn on/off IE specific styles
+// @link http://jakearchibald.github.com/sass-ie/
+
+
+//$old-ie                               : false !default
+
+
+// Color Scheme
+// ==========================================================================
+
+// Descriptive colors:
+$white                                : #FFF
+$off-white                            : #F1F1F1
+$ghost-white                          : #E0E1DD
+$black                                : #000
+$gray                                 : #8A8A8A
+$light-gray                           : #DDD
+$dim-gray                             : darken($gray, 19)
+$lime                                 : #00FF00
+$yellow-green                         : #9ACD32
+$pale-olive                           : #82AF6F
+$dark-orange                          : #F89406
+$tomato                               : #D15B47
+$sky-blue                             : #6A90AB
+$navy-blue                            : #2C5D8F
+$teal-blue                            : #58C3F0
+
+// Main color palette
+$color-theme                          : $sky-blue
+$color-primary                        : $black
+$color-secondary                      : $ghost-white
+
+// Common colors:
+$color-text                           : $dim-gray
+$color-text-weak                      : $gray
+$color-text-inputs                    : $dim-gray
+
+// Message colors:
+$color-success                        : $pale-olive
+$color-warning                        : $dark-orange
+$color-danger                         : $tomato
+
+// Borders colors:
+$color-border                         : $light-gray
+$color-border-strong                  : darken($light-gray, 6)
+$color-border-icon                    : darken($light-gray, 17)
+
+// Link colors:
+$color-link                           : desaturate(adjust_hue($yellow-green, 21), 22)
+
+// Code Colors:
+$color-code                           : #333
+$color-code-background                : #F3F3F3
+$color-pre                            : #D4D4D4
+$color-pre-background                 : #333
+
+// Selections
+$color-selection                      : $sky-blue
+
+
+// Base Sizes
+// ==========================================================================
+
+$base-font-size                       : 62.5% !default
+
+
+// Font Stacks
+// ==========================================================================
+
+
+// (optional) Google Fonts import
+
+
+$google-fonts-url                     : 'http://fonts.googleapis.com/css?family=Roboto|Old+Standard+TT|Raleway'
+
+
+// (optional) Ionic Icon imports
+
+$ionic-icons-url                      : 'http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css'
+
+// define font default
+
+$font-default                         : $google-fonts-url
+
+// (optional) names of webfonts imports
+
+
+$fonts                                : 'bluprint-icons', 'mission-script'
+
+
+// define font stack used for sans-serifs
+
+
+$font-family-sans                     : 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif
+
+
+// define font stack used for serifs
+
+
+$font-family-serif                    : 'Old Standard TT', Georgia, 'Times New Roman', Times, serif
+
+
+// define font stack used for monospaced copy
+
+
+//$font-family-monospace              : 'source-code-pro','Inconsolata', "Menlo", Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+
+
+// Font Weights
+// ==========================================================================
+
+$font-weight-thin                     : 100
+$font-weight-light                    : 300
+$font-weight-normal                   : 400
+$font-weight-semibold                 : 700
+$font-weight-bold                     : 900
+
+
+// Media Break Points:
+// ==========================================================================
+
+$mobile-sm                            : '(max-width: 240px)'
+$mobile-lg                            : '(max-width: 320px)'
+$tablet-sm                            : '(max-width: 480px)'
+$tablet-lg                            : '(max-width: 768px)'
+$screen-sm                            : '(max-width: 992px)'
+$screen-lg                            : '(max-width: 1024px)'
+$screen-xl                            : '(max-width: 1200px)'
+
+
+// z-index References :
+// ==========================================================================
+
+$zindex: (modal: 9000, overlay: 8000, dropdown: 7000, tooltip: 6000, header: 5000, footer: 4000)
