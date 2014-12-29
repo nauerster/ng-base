@@ -1,6 +1,6 @@
 # ASAP
 
-** A Sassy Angular Plate **
+**A Sassy Angular Plate**
 
 Is the Bee's Knees of Angular starter kits. It's based off [Modular Design](http://en.wikipedia.org/wiki/Modular_design) – with [SMACSS](http://smacss.com/) at its core. It incorporates other open-source projects including Bootstrap, jQuery, and Animate.css which are maintained via BowerJS. A GruntJS configuration has also been implemented and provides common build processes including SASS, Compass, Compile, CSSMin, HTMLHint, Concatenation, Uglify, Watch and more.
 
@@ -12,7 +12,7 @@ Is the Bee's Knees of Angular starter kits. It's based off [Modular Design](http
 4. `npm install -g grunt-cli`: installs grunt and grunt-cli globally
 5. `npm install -g bower`: installs bower globally
 
-** Note **:
+**Note:**
 
 * Depending on your permissions setup, you might need to prefix each command with `sudo` (use with caution)
 * All user level installs: `cd ~` will put you at your user level
@@ -31,10 +31,10 @@ Is the Bee's Knees of Angular starter kits. It's based off [Modular Design](http
 
 ## Directory Structure
 
-** Note: **
+**Note:**
 
   * Again, this project is based off [Modular Design](http://en.wikipedia.org/wiki/Modular_design).
-  * Files are grouped by feature rather than type, making it easier to find files related to a feature, which can help speed up develoment cycle and minimize confusion.
+  * Files are grouped by feature rather than type, making it easier to find files related to a feature, which can help speed up the develoment cycle and minimize confusion.
 
 ```
   + app/
