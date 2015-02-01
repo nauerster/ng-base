@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="well">
-                <h1>ASAP<span class="label label-primary">v{{version}}</span></h1>
+                <h1>ASAP<span class="label label-primary">v{{vm.version}}</span></h1>
                 <h3>A Angular starter kit based on a Scalable and Modular Architecture</h3>
                 <p>
                     <a href="#/">Click here</a> to check out the main view that's already stubbed out for you, complete with a controller and test. You'll want to change the routing in <code>app/js/app.js</code> to: <pre>$urlRouterProvider.otherwise('/');</pre>
@@ -12,7 +12,7 @@
         <div id="todos" class="col-xs-6">
             <div class="well">
                 <h2>Todos</h2>
-                <div class="list-group" ng-repeat="todo in todos">
+                <div class="list-group" ng-repeat="todo in vm.todos">
                     <a href="{{todo.githubUrl}}" class="list-group-item" ng-class="{active: todo.completed}" title="checkout the github issue: {{todo.githubUrl}}">
                         <h4 class="list-group-item-heading">{{todo.item}}</h4>
                         <p class="list-group-item-text">{{todo.description}}</p>
