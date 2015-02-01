@@ -52,7 +52,7 @@ Is the Bee's Knees of Angular starter kits. It's based off [Modular Design](http
   |
   | + js/
   |   |
-  |   | + globals/                        # global services (OAuth, ...)
+  |   | + globals/                        # global services (OAuth, routing...)
   |   |   |
   |   |   + ...
   |   |
