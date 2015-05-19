@@ -1,48 +1,62 @@
 // ==========================================================================
-// Functions
+// Functions - Units
 // ==========================================================================
+
+
 
 // px to em conversion
 // http://www.pjmccormick.com/sweet-sass-function-convert-px-em
 
 @function em($target, $context: $base-font-size) {
+
    @if $target == 0 { @return 0 }
    @return $target / $context + 0em;
+
 }
 
 // px to rem
 // http://www.pjmccormick.com/sweet-sass-function-convert-px-em
 
 @function rem($target, $context: $base-font-size) {
+
   @if $target == 0 { @return 0 }
   @return $target / $context + 0rem;
+
 }
 
-//em to px conversion
+// em to px conversion
 // http://www.pjmccormick.com/sweet-sass-function-convert-px-em
 
 @function px($target, $context: $base-font-size) {
+
   @if $target == 0 { @return 0 }
   @return $target * $context + 0px;
+
 }
 
 // Aspect Ratio
 
 @function aspect-ratio($ratio-numerator, $ratio-denominator) {
+
   @return (($ratio-denominator / $ratio-numerator) * 100%);
+
 }
 
 // Aspect Ratio
 // Based on Fixed Image Dimensions
 
 @function aspect-ratio-fixed($w, $h) {
+
   @return ($h / $w) * 100%;
+
 }
 
 // Context Calculator
 
 @function context-calc($target, $context) {
+
   @return ($target / $context) * 100%;
+
 }
 
 
@@ -50,16 +64,8 @@
 //http://hugogiraudel.com/2013/08/12/sass-functions
 
 @function strip-unit($num) {
+
     @return $num / ($num * 0 + 1);
+
 }
 
-
-// Map pre-defined z-index values
-// http://www.sitepoint.com/better-solution-managing-z-index-sass/
-
-@function z($layer) {
-  @if not map-has-key($zindex, $layer) {
-    @warn "No layer found for `#{$layer}` in $zindex map. Property omitted."
-  }
-  @return map-get($zindex, $layer)
-}

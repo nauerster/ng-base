@@ -3,6 +3,7 @@
 // ==========================================================================
 
 
+
 // CSS layout debugging
 // @link http://pesticide.io/
 
@@ -24,63 +25,98 @@ $pesticide-debug                       : false
 //$old-ie                               : false !default
 
 
-// Color Scheme
+// Descriptive colors:
 // ==========================================================================
 
-// Descriptive colors:
-$white                                : #FFF
-$off-white                            : #F1F1F1
-$ghost-white                          : #E0E1DD
-$black                                : #000
-$gray                                 : #8A8A8A
-$light-gray                           : #DDD
-$dim-gray                             : darken($gray, 19)
-$lime                                 : #00FF00
-$yellow-green                         : #9ACD32
-$pale-olive                           : #82AF6F
-$dark-orange                          : #F89406
-$tomato                               : #D15B47
-$sky-blue                             : #6A90AB
-$navy-blue                            : #2C5D8F
-$teal-blue                            : #58C3F0
+// Primary palette
 
-// Main color palette
-$color-theme                          : $teal-blue
-$color-primary                        : $black
-$color-secondary                      : $ghost-white
+$white                                : #FFFFFF
+$black                                : #000000
+$light-gray                           : #F5F5F5
+$medium-gray                          : #707070
+$pale-blue                            : #EBF2F9
+$blue                                 : #3572B0
+$navy                                 : #205081
+$charcoal                             : #333333
+$green                                : #14892C
+$yellow                               : #F6C342
+$red                                  : #D04437
 
-// Common colors:
-$color-text                           : $dim-gray
-$color-text-weak                      : $gray
-$color-text-inputs                    : $dim-gray
+// Secondary palette
 
-// Message colors:
-$color-success                        : $pale-olive
-$color-warning                        : $dark-orange
-$color-danger                         : $tomato
+$gray                                 : #999999
+$ash-gray                             : #CCCCCC
+$silver                               : #E9E9E9
+$brown                                : #815B3A
+$cheeto-orange                        : #F79232
+$tan                                  : #F1A257
+$light-brown                          : #D39C3F
+$cyan                                 : #59AFE1
+$slate                                : #4A6785
+$cool-blue                            : #84BBC6
+$lime-green                           : #8EB021
+$mid-green                            : #67AB49
+$violet                               : #654982
+$mauve                                : #AC707A
+$bright-pink                          : #F15C75
+$rosie                                : #F691B2
 
-// Borders colors:
-$color-border                         : $light-gray
-$color-border-strong                  : darken($light-gray, 6)
-$color-border-icon                    : darken($light-gray, 17)
 
-// Link colors:
-$color-link                           : desaturate(adjust_hue($yellow-green, 21), 22)
+// Colors - Theme Specific
+// ==========================================================================
 
-// Code Colors:
-$color-code                           : #333
-$color-code-background                : #F3F3F3
-$color-pre                            : #D4D4D4
-$color-pre-background                 : #333
+$color-theme                          : (primary: #424446, accent: #FFAC5B, secondary: #898E91, foreground: #C8CACE, background: #F0F2F5)
 
-// Selections
-$color-selection                      : $sky-blue
+// Tints and Shdes
+
+$color__primary                       : #424446
+$color__primary--                : lighten($color__primary, 5%)
+$color__primary--border                 : shade($color__primary, 10%)
+
+$color__accent                        : color-palette(accent)
+$color__accent--tinted                : mix($white, $color__accent, 10%)
+$color__accent--shaded                : mix($black, $color__accent, 10%)
+
+$color__secondary                     : color-palette(secondary)
+$color__secondary--tinted             : mix($white, $color__secondary, 10%)
+$color__secondary--shaded             : mix($black, $color__secondary, 10%)
+
+$color__foreground                    : color-palette(foreground)
+$color__foreground--tinted            : mix($white, $color__foreground, 10%)
+$color__foreground--shaded            : mix($black, $color__foreground, 10%)
+
+$color__background                    : color-palette(background)
+$color__background--tinted            : mix($white, $color__background, 10%)
+$color__background--shaded            : mix($black, $color__background, 10%)
+
+// Actions and Outcomes
+
+$color__success                       : $mid-green
+$color__info                          : $cyan
+$color__warning                       : $cheeto-orange
+$color__danger                        : $red
+$color__disabled                      : $ash-gray
+
+// Borders and Outlines
+
+$color__border                        : $color__background--shaded
+
+// Content Defaults
+
+$color__input                         : $color__secondary
+
+// Modular Scale
+// ==========================================================================
+
+$ms-base                              : 1em
+$ms-ratio                             : 1.618
 
 
 // Base Sizes
 // ==========================================================================
 
-$base-font-size                       : 62.5% !default
+// $base__font--size                  : 62.5% !default
+$base__font--size                     : 13px !default
 
 
 // Font Stacks
@@ -89,12 +125,12 @@ $base-font-size                       : 62.5% !default
 
 // (optional) Google Fonts import
 
-$google-fonts-url                     : 'http://fonts.googleapis.com/css?family=Roboto|Old+Standard+TT|Raleway'
+$font__vendor--google                 : 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Old+Standard+TT|Raleway'
 
 
 // define font default
 
-$font-default                         : $google-fonts-url
+$font-default                         : $font__vendor--google
 
 
 // (optional) names of webfonts imports
@@ -104,17 +140,17 @@ $fonts                                : 'asap-icons'
 
 // define font stack used for sans-serifs
 
-$font-family-sans                     : 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif
+$font__family--sans                   : 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif
 
 
 // define font stack used for serifs
 
-$font-family-serif                    : 'Old Standard TT', Georgia, 'Times New Roman', Times, serif
+$font__family--serif                  : 'Old Standard TT', Georgia, 'Times New Roman', Times, serif
 
 
 // define font stack used for monospaced copy
 
-//$font-family-monospace              : 'source-code-pro','Inconsolata', "Menlo", Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+$font__family--monospace              : 'source-code-pro','Inconsolata', "Menlo", Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace
 
 
 // (optional) URL for Font Stack imports
@@ -127,14 +163,19 @@ $ionic-icons                          : 'http://code.ionicframework.com/ionicons
 $icon-stack                           : $font-awesome
 
 
+// (optional) define images path
+
+$image-path                           : 'images/'
+
+
 // Font Weights
 // ==========================================================================
 
-$font-weight-thin                     : 100
-$font-weight-light                    : 300
-$font-weight-normal                   : 400
-$font-weight-semibold                 : 700
-$font-weight-bold                     : 900
+$font__weight--thin                   : 100
+$font__weight--light                  : 300
+$font__weight--normal                 : 400
+$font__weight--semibold               : 700
+$font__weight--bold                   : 900
 
 
 // Media Break Points:
@@ -147,9 +188,10 @@ $tablet-lg                            : '(max-width: 768px)'
 $screen-sm                            : '(max-width: 992px)'
 $screen-lg                            : '(max-width: 1024px)'
 $screen-xl                            : '(max-width: 1200px)'
+$screen-xxl                           : '(max-width: 1500px)'
 
 
-// z-index References :
+// z-index References:
 // ==========================================================================
 
 $zindex: (modal: 9000, overlay: 8000, dropdown: 7000, tooltip: 6000, header: 5000, footer: 4000, top: 3000, middle: 2000, bottom: 1000)

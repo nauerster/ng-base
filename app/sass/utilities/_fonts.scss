@@ -19,11 +19,11 @@
   @each $font-face in $fonts {
     @font-face {
       font-family: $font-face;
-      src: url('../font/#{$font-face}.eot');
-      src: url('../font/#{$font-face}.eot?#iefix') format('embedded-opentype'),
-           url('../font/#{$font-face}.woff') format('woff'),
-           url('../font/#{$font-face}.ttf') format('truetype'),
-           url('../font/#{$font-face}.svg##{$font-face}') format('svg');
+      src: url('../fonts/#{$font-face}.eot');
+      src: url('../fonts/#{$font-face}.eot?#iefix') format('embedded-opentype'),
+           url('../fonts/#{$font-face}.woff') format('woff'),
+           url('../fonts/#{$font-face}.ttf') format('truetype'),
+           url('../fonts/#{$font-face}.svg##{$font-face}') format('svg');
       font-style: normal;
       font-weight: normal;
     }

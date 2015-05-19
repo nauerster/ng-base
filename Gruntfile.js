@@ -1,3 +1,4 @@
+'use strict';
 /*
 
     Grunt installation:
@@ -10,6 +11,14 @@
     --------------------------
     npm install (from the same root directory as the `package.json` file
 
+    Install/Update Plugin :
+    --------------------------
+    npm install [plugin-name] --save-dev
+
+    UnInstall Plugins:
+    --------------------------
+    npm uninstall [plugin-name] --save-dev
+
     Tasks:
     --------------------------
     grunt (default is to watch both sass and coffeescript files)
@@ -19,6 +28,15 @@
     All commands are detailed by running the following:
     --------------------------
     grunt --help
+
+    Globbing Patterns
+    --------------------------
+    * matches any number of characters, but not /
+    ? matches a single character, but not /
+    ** matches any number of characters, including /, as long as it's the only thing in a path part
+    {} allows for a comma-separated list of "or" expressions
+    ! at the beginning of a pattern will negate the match
+
 
 */
 
@@ -48,14 +66,14 @@ module.exports = function(grunt) {
                 tasks: ['bowerInstall']
             },
             js: {
-                files: ['<%= config.app %>/js/{,*/}*.js'],
+                files: ['<%= config.app %>/src/{,*/}*.js'],
                 tasks: ['newer:jshint:all'],
                 options: {
                     livereload: true
                 }
             },
             views: {
-                files: ['<%= config.app %>/includes/**/*.html', '<%= config.app %>/templates/**/*.html'],
+                files: ['<%= config.app %>/src/**/*.html', '<%= config.app %>/templates/**/*.html'],
                 options: {
                     livereload: true
                 }
@@ -120,7 +138,7 @@ module.exports = function(grunt) {
         // Make sure our code is beautiful.
         // jsbeautifier is currently setup to look at our JS, HTML & CSS.
         jsbeautifier: {
-            files: ['<%= config.app %>/js/**/*.js', '<%= config.app %>/css/*.css', '<%= config.app %>/views/**/*.html'],
+            files: ['<%= config.app %>/src/**/*.js', '<%= config.app %>/css/*.css', '<%= config.app %>/src/**/*.html'],
             options: {}
         },
 
@@ -132,7 +150,7 @@ module.exports = function(grunt) {
             },
             all: [
                 'Gruntfile.js',
-                '<%= config.app %>/js/**/*.js'
+                '<%= config.app %>/src/**/*.js'
             ],
             test: {
                 options: {
@@ -191,7 +209,7 @@ module.exports = function(grunt) {
                 cssDir: '.tmp/css',
                 generatedImagesDir: '.tmp/images/generated',
                 imagesDir: '<%= config.app %>/images',
-                javasDir: '<%= config.app %>/js',
+                javasDir: '<%= config.app %>/src/{,*/}',
                 fontsDir: '<%= config.app %>/fonts',
                 importPath: '<%= config.app %>/bower_components',
                 httpImagesPath: '/images',
@@ -218,10 +236,10 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     src: [
-                        '<%= config.dist %>/js/{,*/}*.js',
+                        '<%= config.dist %>/src/{,*/}*.js',
                         '<%= config.dist %>/css/{,*/}*.css',
-                        '<%= config.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-                        '<%= config.dist %>/fonts/*'
+                        '<%= config.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+                        // '<%= config.dist %>/fonts/*'
                     ]
                 }
             }
@@ -246,19 +264,13 @@ module.exports = function(grunt) {
             }
         },
 
-        // Performs rewrites based on rev and the useminPrepare configuration
-        usemin: {
-            html: ['<%= config.dist %>/{,*/}*.html'],
-            css: ['<%= config.dist %>/css/{,*/}*.css'],
-            options: {
-                assetsDirs: ['<%= config.dist %>']
-            }
-        },
-
         // The following *-min tasks produce minified files in the dist folder
+        // Note: https://github.com/yeoman/grunt-usemin/issues/368#issuecomment-52153636
         cssmin: {
             options: {
-                root: '<%= config.app %>'
+                // root: '<%= config.app %>'
+              target: '.tmp/css/{,*/}*.css',
+              relativeTo: '.tmp/css/'
             }
         },
 
@@ -284,7 +296,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= config.dist %>',
-                    src: ['*.html', 'views/{,*/}*.html'],
+                    src: ['*.html', 'src/{,*/}*.html'],
                     dest: '<%= config.dist %>'
                 }]
             }
@@ -316,9 +328,10 @@ module.exports = function(grunt) {
                         '*.{ico,png,txt}',
                         '.htaccess',
                         '*.html',
-                        'views/{,*/}*.html',
+                        'src/{,*/}*.html',
                         'images/{,*/}*.{webp}',
-                        'fonts/*'
+                        'fonts/{,*/}*.*'
+                        //'fonts/*'
                     ]
                 }, {
                     expand: true,

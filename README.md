@@ -80,9 +80,12 @@ Is the Bee's Knees of Angular starter kits. It's based off [Modular Design](http
   |   |   |-- _base.sass                  # base styles
   |   |   |-- _normalize.scss             # normalize v3.0.1
   |   |   |-- _reset.sass                 # reset v0.0.1
+  |   |   |-- _modifiers.sass             # single responsibilty classes
+  |   |   |-- _typography.sass            # core typography rules
   |   |
   |   | + layout/                         # major components, e.g., header, footer etc.
   |   |   |-- _index.sass                 # imports for all layout styles
+  |   |   |-- _content.sass               # core content block's, e.g., .section, .container, .row, .content
   |   |   |-- _grid.sass                  # responsive grid system
   |   |   |-- _header.sass                # global header
   |   |   |-- _footer.sass                # global footer
@@ -90,6 +93,11 @@ Is the Bee's Knees of Angular starter kits. It's based off [Modular Design](http
   |   | + modules/                        # minor components, e.g., buttons, widgets etc.
   |   |   |-- _index.sass                 # imports for all modules
   |   |   |-- _modal.sass                 # modal styles
+  |   |   |-- + buttons/                  # button directory consist of decorators
+  |   |   |-- | _button.sass              # default build decorator
+  |   |   |-- | _button-states.sass       # button states decorator, i.e., primary, success, warning etc.
+  |   |   |-- | _button-sizes.sass        # button sizes decorators, e.g., small, large
+  |   |   |-- | _button-types.sass        # button variable decorators, e.g., outlined, squared etc.
   |   |
   |   | + states/                         # js-based classes, alternative states e.g., success or error state
   |   |   |-- _index.sass                 # imports for all state styles
@@ -102,20 +110,26 @@ Is the Bee's Knees of Angular starter kits. It's based off [Modular Design](http
   |   |
   |   | + views/                          # (optional) separate view files
   |   |   |-- _index.sass                 # imports for all views styles
-  |   |   |-- _login.sass                 # specific view styles
-  |   |   |-- _dashboard.sass             # specific view styles
+  |   |   |-- _view1.sass                 # specific view styles
+  |   |   |-- _view2.sass                 # specific view styles
   |   |   |-- ...                         # more...
   |   |
   |   | + utilities/                      # non-CSS outputs (i.e. mixins, variables) & non-modules
   |   |   |-- _index.sass                 # imports for all mixins + global project variables
   |   |   |-- _fonts.sass                 # @font-face mixins
-  |   |   |-- _functions.sass             # ems to rems conversion, etc.
+  |   |   |-- + functions/                # ems to rems conversion, etc.
+  |   |       | _index.sass               # imports for all function modules
+  |   |       | _colors.scss              # color mapper
+  |   |       | _units.scss               # ems to rems conversion
+  |   |       | _layout.scss              # width calculations and depth mapping
+  |   |
   |   |   |-- _global.sass                # global variables
-  |   |   |-- _helpers.sass               # placeholder helper classes
+  |   |   |-- _helpers.sass               # extension classes
   |   |   |-- _mixins.sass                # media queries, CSS3, etc.
   |   |   |-- _lib.sass                   # imports for third party styles
   |   |   |-- + lib/                      # third party styles
   |   |       | _pesticide.scss           # CSS pesticide
+  |   |       | _animate.scss             # Cross-Browser animation library
   |   |
   |   |   + ie.sass                       # IE specific Sass file
   |   |   + styles.sass                   # primary Sass file

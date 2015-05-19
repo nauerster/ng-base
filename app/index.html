@@ -14,50 +14,58 @@
 
     //-->
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- #DNS prefetching -->
     <!-- http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers -->
-    <link rel="dns-prefetch" href="//ajax.googleapis.com">
-    <link rel="dns-prefetch" href="//use.typekit.net">
-    <link rel="dns-prefetch" href="//google-analytics.com">
+    <link rel="dns-prefetch" href="//ajax.googleapis.com" />
+    <link rel="dns-prefetch" href="//use.typekit.net" />
+    <link rel="dns-prefetch" href="//google-analytics.com" />
 
     <!-- #Asset Prefetching -->
     <!-- Fetch and Download Assets before requested by the user  -->
     <!-- http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/#section:resource-prefetching -->
-    <link rel="prefetch" href="">
+    <link rel="prefetch" href="" />
 
     <!-- #Page Prefetching -->
     <!-- http://calendar.perfplanet.com/2012/speed-up-your-site-using-prefetching -->
-    <link rel="prefetch" href="index.html">
+    <link rel="prefetch" href="index.html" />
 
-    <title>ASAP - A Sassy Angular Plate</title>
-    <meta name="description" content="">
-    <meta name="robots" content="all">
+    <meta name="description" content="" />
+    <meta name="robots" content="all" />
 
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, user-scalable=1, initial-scale=1, maximum-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Mobile Meta -->
+    <meta name="viewport" content="width=device-width,  initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
     <!-- MS Tap Highlight for Windows Phones -->
     <!-- The tag is specific to Internet Explorer 10 on Windows Phone, and does not apply to Internet Explorer 10 on Windows. -->
     <!-- http://stackoverflow.com/questions/7508100/webkit-tap-highlight-color-in-windows-phone -->
-    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-tap-highlight" content="no" />
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
+    <title data-ng-bind="title"></title>
+    <style>
+      /* This helps the ng-show/ng-hide animations start at the right place. */
+      /* Since Angular has this but needs to load, this gives us the class early. */
+      .ng-hide {
+        display: none !important;
+      }
+    </style>
+
     <!-- build:css css/vendor.css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/animate.css/animate.min.css" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="bower_components/animate.css/animate.min.css" rel="stylesheet" />
     <!-- endbuild -->
 
     <!-- build:css({.tmp,app}) css/style.css -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link href="css/styles.css" rel="stylesheet" />
     <!-- endbuild -->
 
   </head>
-  <body ng-app="app" ng-cloak>
+  <body data-ng-app="app" data-ng-cloak>
 
       <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -65,10 +73,10 @@
       <!-- Add your site or application content here -->
 
 
-
-      <section class="ui-content" ui-view="content">
+      <div class="app-container" ui-view="content">
           <!-- This is the real app content -->
-      </section>
+      </div>
+
 
       <!--[if lt IE 9]>
       <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -83,16 +91,23 @@
       <script src="bower_components/angular-base64/angular-base64.min.js"></script>
       <!-- endbuild -->
 
+
       <!-- build:js({.tmp,app}) js/app.js -->
-      <script src="js/globals/app.core.js"></script>
-      <script src="js/globals/app.routes.js"></script>
-      <script src="js/app.js"></script>
-      <script src="js/views/info/controller.info.js"></script>
-      <script src="js/views/dashboard/controller.dashboard.js"></script>
-      <!-- Directives -->
-      <!-- End Directives -->
-      <!-- Models -->
-      <!-- End Models -->
+      <!-- Bootstrapping -->
+      <script src="src/app.module.js"></script>
+
+      <!-- reusable blocks -->
+      <script src="src/blocks/router.module.js"></script>
+
+      <!-- core -->
+      <script src="src/core/core.module.js"></script>
+
+      <!-- components -->
+      <script src="src/components/components.module.js"></script>
+
+      <!-- welcome -->
+      <script src="src/welcome/welcome.module.js"></script>
+      <script src="src/welcome/welcome.controller.js"></script>
       <!-- endbuild -->
 
   </body>

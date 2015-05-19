@@ -24,3 +24,6 @@ app/bower_components
 Thumbs.db
 .cache
 
+# Misc
+archive
+

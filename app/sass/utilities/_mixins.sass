@@ -3,15 +3,16 @@
 // ==========================================================================
 
 
+
 // SMACSS Theming
 // ==========================================================================
-/**
- * Example:
- * .foobar {
- *   background: #ff3377
- *   +theme(theme-name)
- *     background: #663399
- */
+//
+// Example:
+// .foobar {
+//   background: #ff3377
+//   +theme(theme-name)
+//     background: #663399
+//
 
 //=theme($name)
   //@if $theme == $name
@@ -21,14 +22,14 @@
 
 // Media queries
 // ==========================================================================
-/*
- * Allows you to pass inline media queries
- * Example:
- * .container
- *    width: 50%
- *    +respond-to($tablet-lg)
- *      width: 100%
- */
+//
+// Allows you to pass inline media queries
+// Example:
+// .container
+//    width: 50%
+//    +respond-to($tablet-lg)
+//      width: 100%
+//
 
 =respond-to($media)
   @media #{$media}
@@ -38,10 +39,10 @@
 
 // Prefixer
 // ==========================================================================
-/**
- * Works well with other mixins
- * @example
- */
+//
+// Works well with other mixins
+// @example
+//
 
 =prefixer($property, $value, $prefixes: webkit moz ms o)
 
@@ -54,13 +55,13 @@
 
 // IE Specific Styles
 // ==========================================================================
-/**
- * Example:
- * .foobar
- *    &.lt-ie8
- *      +old-ie
- *         { ... }
- */
+//
+// Example:
+// .foobar
+//    &.lt-ie8
+//      +old-ie
+//         { ... }
+//
 
 //=old-ie
   //@if $old-ie
@@ -70,23 +71,23 @@
 
 // Sizes
 // ==========================================================================
-/**
- * Example:
- * .container
- *    +size(1024px, 500px)
- */
+//
+// Example:
+// .container
+//    +size(1024px, 500px)
+//
 
 =size($w, $h)
   width: $w
   height: $h
 
-/**
- * Example:
- * .container
- *    +font-size(2.4)
- */
+//
+// Example:
+// .container
+//    +font-size(2.4)
+//
 
-=font-size($size: 1.6, $line: $size * 1.25)
+=font-size($size: $ms-ratio, $line: $size * 1.25)
   font-size: ($size * 10) + px
   line-height: ($line * 10) + px
   font-size: $size + rem
@@ -110,17 +111,22 @@
   +prefixer(box-shadow, $props)
 
 
+=scale($val)
+  +prefixer(transform, scale($val))
+  // ex: +scale(2) scales the element 2x normal size
+
+
 
 // Layout
 // ==========================================================================
 
-/**
- * Position:
- * Assign an element a position
- * Example:
- * .container
- *    +position(abs)
- */
+//
+// Position:
+// Assign an element a position
+// Example:
+// .container
+//    +position(abs)
+//
 
 =position($position: 'rel')
 
@@ -134,13 +140,13 @@
     position: fixed
 
 
-/**
- * Location:
- * Assign an elements exact position
- * Example:
- * .container
- *    +location(topLeft, 10, 20)
- */
+//
+// Location:
+// Assign an elements exact position
+// Example:
+// .container
+//    +location(topLeft, 10, 20)
+//
 
 =location($location, $vertical: auto, $horizontal: auto)
 
@@ -167,29 +173,29 @@
     left: 0
 
 
-/**
- * Middle Center
- * Perfectly center any element - as long as the parent it positioned relative
- * Example:
- * .container
- *    +middle-center
- */
+//
+// Middle Center
+// Perfectly center any element - as long as the parent it positioned relative
+// Example:
+// .container
+//    +middle-center
+//
 
 =middle-center($position: 'abs')
   +position($position)
   top: 50%
   left: 50%
-  transform: translate(-50%, -50%)
+  +prefixer(transform, translate(-50%, -50%))
 
 
 
-/**
- * Grid Factory
- * Builds out a responsive grid system all based on percentages
- * Example:
- * .column
- *    +grid-factory(4, 2%)
- */
+//
+// Grid Factory
+// Builds out a responsive grid system all based on percentages
+// Example:
+// .column
+//    +grid-factory(4, 2%)
+//
 
 =grid-factory($col-per-row, $margin)
   width: ((100% - (($col-per-row - 1) * $margin)) / $col-per-row)
@@ -204,52 +210,6 @@
 
 // Layout Helpers
 // ==========================================================================
-/**
- * Example:
- * .container
- *    +margin(5 10)
- *
- * Output: margin: 5px 10px
- */
-
-
-=margin($margin)
-
-  @if length($margin) == 1
-    margin: $margin + px
-    margin: $margin / 10 + rem
-
-  @if length($margin) == 2
-    margin: nth($margin, 1) + px nth($margin, 2) + px
-    margin: nth($margin, 1) * 0.1 + rem nth($margin, 2) * 0.1 +rem
-
-  @if length($margin) == 3
-    margin: nth($margin, 1) + px nth($margin, 2) + px nth($margin, 3) + px
-    margin: nth($margin, 1) * 0.1 + rem nth($margin, 2) * 0.1 + rem nth($margin, 3) * 0.1 + rem
-
-  @if length($margin) == 4
-    margin: nth($margin, 1) + px nth($margin, 2) + px nth($margin, 3) + px nth($margin, 4) + px
-    margin: nth($margin, 1) * 0.1 + rem nth($margin, 2) * 0.1 + rem nth($margin, 3) * 0.1 + rem nth($margin, 4) * 0.1 + rem
-
-
-=padding($padding)
-
-  @if length($padding) == 1
-    padding: $padding + px
-    padding: $padding / 10 + rem
-
-  @if length($padding) == 2
-    padding: nth($padding, 1) + px nth($padding, 2) + px
-    padding: nth($padding, 1) * 0.1 + rem nth($padding, 2) * 0.1 + rem
-
-  @if length($padding) == 3
-    padding: nth($padding, 1) + px nth($padding, 2) + px nth($padding, 3) + px
-    padding: nth($padding, 1) * 0.1 + rem nth($padding, 2) * 0.1 + rem nth($padding, 3) * 0.1 + rem
-
-  @if length($padding) == 4
-    padding: nth($padding, 1) + px nth($padding, 2) + px nth($padding, 3) + px nth($padding, 4) + px
-    padding: nth($padding, 1) * 0.1 + rem nth($padding, 2) * 0.1 + rem nth($padding, 3) * 0.1 + rem nth($padding, 4) * 0.1 + rem
-
 
 
 =inline-block($alignment: baseline)
@@ -267,11 +227,11 @@
 
 // Borders
 // ==========================================================================
-/**
- * Example:
- * .container
- *    +border(solid 1 $color-border)
- */
+//
+// Example:
+// .container
+//    +border(solid 1 $color-border)
+//
 
 =border($properties)
   border: $properties
@@ -288,11 +248,11 @@
 
 // Pseudo Factory
 // ==========================================================================
-/**
- * Example:
- * .container
- *    +pseudo-el(after, 0, 0)
- */
+//
+// Example:
+// .container
+//    +pseudo-el(after, 0, 0)
+//
 
 =pseudo-el($elem, $elemWidth: auto, $elemHeight: auto)
 
@@ -309,43 +269,51 @@
 
 // Shapes
 // ==========================================================================
-/**
- * Example:
- * .container
- *    +circle(50)
- */
+//
+// Example:
+// .container
+//    +circle(50)
+//
 
 =circle($size)
   +radius($size / 2)
 
 
-/**
- * Example:
- * .container
- *    +triangle(up, 12, $gray)
- */
+//
+// Example:
+// .container
+//    +triangle(up, 12, $gray, 5)
+//
 
-=triangle($direction, $size, $color)
+=triangle($direction, $size, $clr, $offset: 3)
 
   @if $direction == 'up'
     border-right: $size solid transparent
-    border-bottom: $size * 1.732 solid $color
+    border-bottom: $size * $ms-ratio solid $clr
     border-left: $size solid transparent
+    top: -$size * $ms-ratio
+    left: 50% - $ms-ratio * $offset
 
   @else if $direction == 'down'
-    border-top: $size * 1.732 solid $color
+    border-top: $size * $ms-ratio solid $clr
     border-right: $size solid transparent
     border-left: $size solid transparent
+    bottom: -$size * $ms-ratio
+    left: 50% - $ms-ratio * $offset
 
   @else if $direction == 'left'
     border-top: $size solid transparent
-    border-right: $size * 1.732 solid $color
+    border-right: $size * $ms-ratio solid $clr
     border-bottom: $size solid transparent
+    left: -$size * $ms-ratio
+    top: 50% - $ms-ratio * $offset
 
   @else if $direction == 'right'
     border-top: $size solid transparent
     border-bottom: $size solid transparent
-    border-left: $size * 1.732 solid $color
+    border-left: $size * $ms-ratio solid $clr
+    right: -$size * $ms-ratio
+    top: 50% - $ms-ratio * $offset
 
 
 =sham($width: auto, $height: auto)
@@ -356,25 +324,30 @@
 
 // Buttons
 // ==========================================================================
-/**
- * This customises your buttons with a different background color and text color.
- * If no text color is specified it will default to white.
- */
+//
+// This customises your buttons with a different background color and text color.
+// If no text color is specified it will default to white.
+//
 
-=btn($color-background, $color-text: $white)
-  background-color: $color-background
-  border-color: darken($color-border, 6%)
-  color: $color-text
+=button-skin($clr, $bg)
+  +transition(all 300ms linear)
+  color: $clr
+  border-color: darken($bg, 5%)
+  background-color: $bg
+  &:hover
+    color: darken($clr, 5%)
+    border-color: darken($bg, 10%)
+    background-color: darken($bg, 5%)
 
 
 
 // Fullscreen Background for < IE8
 // ==========================================================================
-/**
- * Example:
- * .foobar
- *    +fullscreen-bg
- */
+//
+// Example:
+// .foobar
+//    +fullscreen-bg
+//
 
 =fullscreen-bg($size, $position, $location)
   +size(200%, 200%)
@@ -394,17 +367,17 @@
 
 // Opacity filter < IE7 Fallback
 // ==========================================================================
-/**
- * Example:
- * .foobar
- *    +opacity(4)
- */
+//
+// Example:
+// .foobar
+//    +opacity(4)
+//
 
 =opacity($opacity)
   filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})")
   opacity: $opacity
 
-  /* Hack IE6 */
+  /* Hack IE6//
   &.lt-ie7
     filter : alpha(opacity=#{round($opacity * 100)})
     zoom: 1
@@ -413,11 +386,11 @@
 
 // RGBA Fallback
 // ==========================================================================
-/**
- * Example:
- * .foobar
- *    +rgba-bg(#F37, .9)
- */
+//
+// Example:
+// .foobar
+//    +rgba-bg(#F37, .9)
+//
 
 =rgba-bg($color, $percent)
   background: $color

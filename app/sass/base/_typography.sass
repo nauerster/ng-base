@@ -1,0 +1,139 @@
+// ==========================================================================
+// Typography
+//
+// Titles: What is this page about?
+// Headings: What will I learn?
+// Headlines: Used to introduce a story and entice the reader to read-on
+// ==========================================================================
+
+
+
+// Defaults
+// ==========================================================================
+
+html,
+body
+  font-family: $font__family--sans
+  color: $color__primary
+
+body
+  +font-size($base__font--size)
+
+  // Begin Responsive Sizing
+  +respond-to($mobile-sm)
+    +font-size(0.875)
+
+  +respond-to($mobile-lg)
+    +font-size(0.9375)
+
+  +respond-to($tablet-sm)
+    +font-size(1)
+
+  +respond-to($tablet-lg)
+    +font-size(1.063)
+
+  +respond-to($screen-sm)
+    +font-size(1.125)
+
+  +respond-to($screen-lg)
+    +font-size(1.188)
+
+  +respond-to($screen-xl)
+    +font-size(1.25)
+
+  +respond-to($screen-xxl)
+    +font-size(1.313)
+
+
+// Titles, Headlines, and Headings
+// title = 36px
+// heading = 30px | lg = 24px | md = 18px | sm = 14px
+// headline = 21px
+// ==========================================================================
+
+h1,
+.title
+  +font-size(2.25)
+
+h2,
+.heading
+  +font-size(1.875)
+
+h3,
+.heading--lg
+  +font-size(1.5)
+
+h4,
+.heading--md
+  +font-size(1.125)
+
+h5,
+.heading--sm
+  +font-size(0.875)
+
+h6,
+.heading--xs
+  +font-size(0.75)
+
+.headline
+  +font-size(1.313)
+
+
+// Emphasize Text
+// ==========================================================================
+
+.callout
+  font-weight: bold
+
+.underline
+  text-decoration: underline
+
+.highlight
+  background-color: color-palette-alpha('accent', 'light')
+
+
+// Subheading Ex: <h2><small>Subtitle</small></h2>
+// ==========================================================================
+
+small,
+.subcopy
+  font-size: 65%
+
+
+// Paragraphs
+// ==========================================================================
+
+.content__body
+  +font-size(0.875)
+
+  &--sm
+    +font-size(0.75)
+
+
+// Code Blocks
+// ==========================================================================
+
+.code
+  +font-size(0.75)
+  @extend %word-wrap
+  font-weight: $font__weight--light
+  font-family: $font__family--monospace
+  color: $color__primary--tinted
+
+
+// Icons
+// icon = 14px | sm = 12px | md = 18px | lg = 24px
+// ==========================================================================
+
+.icon
+
+  +font-size(0.875)
+
+  &--sm
+    +font-size(0.75)
+
+  &--md
+    +font-size(1.125)
+
+  &--lg
+    +font-size(1.5)

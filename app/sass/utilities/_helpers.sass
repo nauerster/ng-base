@@ -2,6 +2,8 @@
 // Helper Classes
 // ==========================================================================
 
+
+
 %pseudos
   content: ''
   display: block
@@ -62,6 +64,10 @@
 %block
   display: block
 
+// make elements inline block
+%inline-block
+  display: inline-block
+
 // image replacement
 
 %ir
@@ -94,6 +100,12 @@
   bottom: 0
   left: 0
 
+// vertically align a child element to its' parent
+
+%valign-center
+  position: absolute
+  top: 50%
+  +prefixer(transform, translateY(-50%))
 
 // hide from both screenreaders and browsers: h5bp.com/u
 
