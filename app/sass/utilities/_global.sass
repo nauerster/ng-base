@@ -65,29 +65,29 @@ $rosie                                : #F691B2
 // Colors - Theme Specific
 // ==========================================================================
 
-$color-theme                          : (primary: #424446, accent: #FFAC5B, secondary: #898E91, foreground: #C8CACE, background: #F0F2F5)
+// $color__theme                         : (primary: #424446, accent: #FFAC5B, secondary: #898E91, foreground: #C8CACE, background: #F0F2F5)
 
 // Tints and Shdes
 
 $color__primary                       : #424446
-$color__primary--                : lighten($color__primary, 5%)
-$color__primary--border                 : shade($color__primary, 10%)
+$color__primary--tinted               : tint($color__primary, 5%)
+$color__primary--shaded               : shade($color__primary, 5%)
 
-$color__accent                        : color-palette(accent)
-$color__accent--tinted                : mix($white, $color__accent, 10%)
-$color__accent--shaded                : mix($black, $color__accent, 10%)
+$color__accent                        : #FFAC5B
+$color__accent--tinted                : tint($color__accent, 5%)
+$color__accent--shaded                : shade($color__accent, 5%)
 
-$color__secondary                     : color-palette(secondary)
-$color__secondary--tinted             : mix($white, $color__secondary, 10%)
-$color__secondary--shaded             : mix($black, $color__secondary, 10%)
+$color__secondary                     : #898E91
+$color__secondary--tinted             : tint($color__secondary, 5%)
+$color__secondary--shaded             : shade($color__secondary, 5%)
 
-$color__foreground                    : color-palette(foreground)
-$color__foreground--tinted            : mix($white, $color__foreground, 10%)
-$color__foreground--shaded            : mix($black, $color__foreground, 10%)
+$color__foreground                    : #C8CACE
+$color__foreground--tinted            : tint($color__foreground, 5%)
+$color__foreground--shaded            : shade($color__foreground, 5%)
 
-$color__background                    : color-palette(background)
-$color__background--tinted            : mix($white, $color__background, 10%)
-$color__background--shaded            : mix($black, $color__background, 10%)
+$color__background                    : #F0F2F5
+$color__background--tinted            : tint($color__background, 5%)
+$color__background--shaded            : shade($color__background, 5%)
 
 // Actions and Outcomes
 

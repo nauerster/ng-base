@@ -316,18 +316,18 @@
     top: 50% - $ms-ratio * $offset
 
 
-=sham($width: auto, $height: auto)
-  width: $width
-  height: $height
-  @extend %pseudos
 
-
-// Buttons
+// Skins
 // ==========================================================================
 //
-// This customises your buttons with a different background color and text color.
-// If no text color is specified it will default to white.
+// Customises your blocks or buttons with a different background color and/or
+// text color. If no text color is specified it will default to white.
 //
+
+=block-skin($clr)
+  border-color: shade($clr, 5%)
+  background-color: $clr
+
 
 =button-skin($clr, $bg)
   +transition(all 300ms linear)

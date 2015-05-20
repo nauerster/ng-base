@@ -16,6 +16,7 @@
 
 // Map pre-defined z-index values
 // http://www.sitepoint.com/better-solution-managing-z-index-sass/
+// ex: .modal {z-index: z(modal)} z-index = 9000
 
 @function z($layer) {
 
