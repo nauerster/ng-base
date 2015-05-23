@@ -4,50 +4,96 @@
 
 
 
+// Pseudo Constants
+// ==========================================================================
+
 %pseudos
   content: ''
   display: block
   position: absolute
 
-// allow words to break at arbitrary points
+
+// Allow words to break at arbitrary points
+// ==========================================================================
 
 %word-wrap
   word-wrap: break-word
 
-%text-off-screen
+
+// Throws the content off a users screen
+// ==========================================================================
+
+%text-offscreen
   text-indent: -9999px
   color: transparent
 
-%border-radius-none
-  border: 0
-  +radius(0)
 
-// prevent background from drawing below the border
+// Default text shadow - provided a clean and subtle shadow in most cases.
+// ==========================================================================
+
+%text-shadow
+  text-shadow: 0px 1px 2px rgba(0,0,0,0.2)
+
+
+// Shadows
+// ==========================================================================
+
+%z-depth-2
+  @extend %box-sizing
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12)
+
+
+// Removes any border radius
+// ==========================================================================
+
+%border-radius-none
+  +radius(0)
+  border: 0
+
+
+// Prevent background from drawing below the border
+// ==========================================================================
 
 %bg-clip
   background-clip: padding-box
 
-// include border & padding properties into the final width and/or height of an element
+
+// Include border & padding properties into the final width
+// and/or height of an element
+// ==========================================================================
 
 %box-sizing
   -webkit-box-sizing: border-box
   -moz-box-sizing: border-box
   box-sizing: border-box
 
-// capitalize everything
+
+// Capitalize everything
+// ==========================================================================
 
 %all-caps
   font-weight: 600
-  // letter-spacing: .06em
   text-transform: uppercase
 
-// margin/padding reset
+
+// Margin/Padding reset
+// ==========================================================================
 
 %mp-reset
   margin: 0 !important
   padding: 0 !important
 
-// clearfix
+
+// Clearfix: contain floats
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    `contenteditable` attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that receive the `clearfix` class.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+// ==========================================================================
 
 %clearfix
   *zoom: 1
@@ -60,25 +106,21 @@
   &:after
     clear: both
 
-// make elements block
-%block
-  display: block
 
-// make elements inline block
-%inline-block
-  display: inline-block
-
-// image replacement
+// Image replacement
+// ==========================================================================
 
 %ir
+  +pseudo-el(before, 0, 150%)
   background-color: transparent
   border: 0
   overflow: hidden
   *text-indent: -9999px
 
-  +pseudo-el(before, 0, 150%)
 
-// kill list defaults
+
+// Remove list defaults
+// ==========================================================================
 
 %no-bullets
   list-style: none
@@ -86,8 +128,11 @@
   margin-left: 0
   padding-left: 0
 
+
+// Absolute position any element
 // make sure container is [position: relative]
 // http://codepen.io/shshaw/full/gEiDt
+// ==========================================================================
 
 %absolute-center
   width: 50%
@@ -100,20 +145,17 @@
   bottom: 0
   left: 0
 
-// vertically align a child element to its' parent
 
-%valign-center
-  position: absolute
-  top: 50%
-  +prefixer(transform, translateY(-50%))
-
-// hide from both screenreaders and browsers: h5bp.com/u
+// Hide from both screenreaders and browsers: h5bp.com/u
+// ==========================================================================
 
 %hidden
   display: none !important
   visibility: hidden
 
-// hide only visually, but have it available for screenreaders: h5bp.com/v
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+// ==========================================================================
 
 %visuallyhidden
   border: 0
