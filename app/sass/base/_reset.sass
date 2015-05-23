@@ -82,7 +82,10 @@ font
   vertical-align: baseline
   background: transparent
 
-// enable html5 elements
+
+// Enable html5 elements
+// =========================================================================
+
 section,
 article,
 canvas,
@@ -100,6 +103,9 @@ figure
   display: block
   vertical-align: baseline
 
+
+// Remove default list styles
+// =========================================================================
 
 ol,
 ul
@@ -142,15 +148,25 @@ q
 del
   text-decoration: line-through
 
-// tables still need 'cellspacing="0"' in the markup
+
+// Tables still need 'cellspacing="0"' in the markup
+// =========================================================================
 
 table
   border-collapse: collapse
   border-spacing: 0
 
+
+// Remove pesky borders added by browsers
+// =========================================================================
+
 a,
 img
   border: none
+
+
+// For Angular Apps - Prevent page flashing
+// =========================================================================
 
 [ng\:cloak],
 [ng-cloak],
