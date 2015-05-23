@@ -138,7 +138,11 @@ module.exports = function(grunt) {
         // Make sure our code is beautiful.
         // jsbeautifier is currently setup to look at our JS, HTML & CSS.
         jsbeautifier: {
-            files: ['<%= config.app %>/src/**/*.js', '<%= config.app %>/css/*.css', '<%= config.app %>/src/**/*.html'],
+            files: [
+              '<%= config.app %>/src/**/*.js',
+              '<%= config.app %>/css/*.css',
+              '<%= config.app %>/src/**/*.html'
+            ],
             options: {}
         },
 
