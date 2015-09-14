@@ -1,3 +1,4 @@
+// To avoid polluting the global namespace, wrap all of your functions in an IIFE.
 (function() {
 
   'use strict';
