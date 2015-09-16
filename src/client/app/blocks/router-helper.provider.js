@@ -19,7 +19,10 @@
       };
 
       /* Changes the routing and URLs of our pages without refreshing the page. */
-      $locationProvider.html5Mode(true);
+      $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: true
+      });
 
 
       this.configure = function(cfg) {
@@ -30,7 +33,7 @@
       // returns the actual logic implemented inside the provider
       this.$get = RouterHelper;
 
-      RouterHelper.$inject = ['$location', '$rootscope', '$state'];
+      RouterHelper.$inject = ['$location', '$rootScope', '$state'];
 
       function RouterHelper($location, $rootscope, $state) {
 

@@ -9,7 +9,10 @@
   appRun.$inject = ['routerHelper'];
 
   function appRun(routerHelper) {
-    routerHelper.configureStates(getStates());
+
+    var otherwise = '/welcome';
+    routerHelper.configureStates(getStates(), otherwise);
+
   }
 
   function getStates() {
@@ -17,15 +20,15 @@
       {
         state: 'welcome',
         config: {
-          url: '/',
-          templateUrl: '/welcome/welcome.partial.html',
+          url: '/welcome',
+          templateUrl: 'app/welcome/welcome.partial.html',
           controller: 'WelcomeCtrl',
           controllerAs: 'vm',
-          title: 'welcome',
-          settings: {
-              nav: 1,
-              content: '<i class="fa fa-dashboard"></i> Dashboard'
-          }
+          title: 'Welcome'
+          // settings: {
+          //     nav: 1,
+          //     content: '<i class="fa fa-dashboard"></i> Dashboard'
+          // }
         }
       }
     ];

@@ -44,9 +44,12 @@
     <!-- http://stackoverflow.com/questions/7508100/webkit-tap-highlight-color-in-windows-phone -->
     <meta name="msapplication-tap-highlight" content="no" />
 
+    <!-- HTML5 mode requires a base tag to be present -->
+    <base href="/"></base>
+
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <title data-ng-bind="title"></title>
+    <title data-ng-bind="$state.current.name"></title>
     <style>
       /* This helps the ng-show/ng-hide animations start at the right place. */
       /* Since Angular has this but needs to load, this gives us the class early. */
@@ -65,6 +68,7 @@
     <!-- endbuild -->
 
   </head>
+  <!-- Define app module here -->
   <body data-ng-app="app" data-ng-cloak>
 
       <!--[if lt IE 7]>
@@ -72,13 +76,17 @@
       <![endif]-->
       <!-- Add your site or application content here -->
 
-
+      <!--
       <div class="app-container">
           <div ng-include="'app/layout/content.html'">
-            <!-- This will populate with all of the apps main content views -->
+            This will populate with all of the apps main content views
           </div>
       </div>
+      -->
 
+      <div ui-view class="container">
+        <!-- This is where we will inject our main content views -->
+      </div>
 
       <!--[if lt IE 9]>
       <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -96,26 +104,27 @@
 
       <!-- build:js({.tmp,app}) js/app.js -->
       <!-- Bootstrapping -->
-      <script src="src/client/app/app.module.js"></script>
+      <script src="app/app.module.js"></script>
 
       <!-- reusable blocks -->
-      <script src="src/client/app/blocks/router.module.js"></script>
-      <script src="src/client/app/blocks/router-helper.provider.js"></script>
+      <script src="app/blocks/router.module.js"></script>
+      <script src="app/blocks/router-helper.provider.js"></script>
 
       <!-- core -->
-      <script src="src/client/app/core/core.module.js"></script>
-      <script src="src/client/app/core/core.config.js"></script>
-      <script src="src/client/app/core/core.route.js"></script>
+      <script src="app/core/core.module.js"></script>
+      <script src="app/core/core.config.js"></script>
+      <script src="app/core/core.route.js"></script>
 
       <!-- layout -->
-      <script src="src/client/app/core/layout.module.js"></script>
+      <script src="app/layout/layout.module.js"></script>
 
       <!-- components -->
-      <script src="src/client/app/components/components.module.js"></script>
+      <script src="app/components/components.module.js"></script>
 
       <!-- welcome -->
-      <script src="src/client/app/welcome/welcome.module.js"></script>
-      <script src="src/client/app/welcome/welcome.controller.js"></script>
+      <script src="app/welcome/welcome.module.js"></script>
+      <script src="app/welcome/welcome.route.js"></script>
+      <script src="app/welcome/welcome.controller.js"></script>
       <!-- endbuild -->
 
   </body>

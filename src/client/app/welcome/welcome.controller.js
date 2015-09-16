@@ -5,15 +5,16 @@
 
   angular
     .module('app.welcome')
-    .controller('Welcome', Welcome);
+    .controller('WelcomeCtrl', WelcomeCtrl);
 
-    function Welcome() {
+    function WelcomeCtrl() {
       // we store our controller instance in the vm variable (ViewModel)
       /*jshint validthis: true */
       var vm = this;
 
-          vm.title = "Welcome to ASAP";
-          vm.body = "A Sassy AngularJS Plate";
+          vm.page = 'welcome';
+          vm.title = 'Welcome to ASAP';
+          vm.body = 'A Sassy AngularJS Plate';
 
     }
 
