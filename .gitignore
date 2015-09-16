@@ -15,7 +15,7 @@ dist
 .sass-cache
 
 # Bower Directory
-client/app/bower_components
+src/client/app/bower_components
 
 
 # OS or Editor folders
