@@ -37,6 +37,9 @@
     {} allows for a comma-separated list of "or" expressions
     ! at the beginning of a pattern will negate the match
 
+    Prefixes
+    --------------------------
+    cwd: current working directory
 
 */
 
@@ -66,24 +69,24 @@ module.exports = function(grunt) {
                 tasks: ['bowerInstall']
             },
             js: {
-                files: ['<%= config.app %>/src/{,*/}*.js'],
+                files: ['<%= config.app %>/app/{,*/}*.js'],
                 tasks: ['newer:jshint:all'],
                 options: {
                     livereload: true
                 }
             },
-            views: {
-                files: ['<%= config.app %>/src/**/*.html', '<%= config.app %>/templates/**/*.html'],
+            html: {
+                files: ['<%= config.app %>/app/**/*.html'],
                 options: {
                     livereload: true
                 }
             },
             jsTest: {
-                files: ['test/spec/{,*/}*.js'],
+                files: ['<%= config.app %>/test/spec/{,*/}*.js'],
                 tasks: ['newer:jshint:test', 'karma']
             },
             compass: {
-                files: ['<%= config.app %>/sass/{,*/}*.{scss,sass}'],
+                files: ['<%= config.app %>/styles/sass/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
             },
             gruntfile: {
@@ -96,7 +99,7 @@ module.exports = function(grunt) {
                 files: [
                     '<%= config.app %>/{,*/}*.html',
                     '.tmp/css/{,*/}*.css',
-                    '<%= config.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+                    '<%= config.app %>/assets/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
             }
         },
@@ -139,9 +142,9 @@ module.exports = function(grunt) {
         // jsbeautifier is currently setup to look at our JS, HTML & CSS.
         jsbeautifier: {
             files: [
-              '<%= config.app %>/src/**/*.js',
-              '<%= config.app %>/css/*.css',
-              '<%= config.app %>/src/**/*.html'
+              '<%= config.app %>/app/**/*.js',
+              '<%= config.app %>/styles/css/*.css',
+              '<%= config.app %>/app/**/*.html'
             ],
             options: {}
         },
@@ -154,13 +157,13 @@ module.exports = function(grunt) {
             },
             all: [
                 'Gruntfile.js',
-                '<%= config.app %>/src/**/*.js'
+                '<%= config.app %>/app/**/*.js'
             ],
             test: {
                 options: {
-                    jshintrc: 'test/.jshintrc'
+                    jshintrc: '<%= config.app %>/test/.jshintrc'
                 },
-                src: ['test/spec/**/*.js']
+                src: ['<%= config.app %>/test/spec/**/*.js']
             }
         },
 
@@ -185,12 +188,12 @@ module.exports = function(grunt) {
                 browsers: ['last 1 version']
             },
             dist: {
-                files: [{
-                    expand: true,
-                    cwd: '.tmp/css/',
-                    src: '{,*/}*.css',
-                    dest: '.tmp/config/'
-                }]
+              files: [{
+                expand: true,
+                cwd: '.tmp/css/',
+                src: '{,*/}*.css',
+                dest: '.tmp/config/'
+              }]
             }
         },
 
@@ -201,7 +204,7 @@ module.exports = function(grunt) {
                 ignorePath: '<%= config.app %>/'
             },
             sass: {
-                src: ['<%= config.app %>/sass/{,*/}*.{scss,sass}'],
+                src: ['<%= config.app %>/styles/sass/{,*/}*.{scss,sass}'],
                 ignorePath: '<%= config.app %>/bower_components/'
             }
         },
@@ -209,23 +212,23 @@ module.exports = function(grunt) {
         // Compiles Sass to CSS and generates necessary files if requested
         compass: {
             options: {
-                sassDir: '<%= config.app %>/sass',
+                sassDir: '<%= config.app %>/styles/sass',
                 cssDir: '.tmp/css',
                 generatedImagesDir: '.tmp/images/generated',
-                imagesDir: '<%= config.app %>/images',
-                javasDir: '<%= config.app %>/src/{,*/}',
-                fontsDir: '<%= config.app %>/fonts',
+                imagesDir: '<%= config.app %>/assets/images',
+                javasDir: '<%= config.app %>/app/{,*/}',
+                fontsDir: '<%= config.app %>/assets/fonts',
                 importPath: '<%= config.app %>/bower_components',
-                httpImagesPath: '/images',
-                httpGeneratedImagesPath: '/images/generated',
-                httpFontsPath: '/fonts',
+                httpImagesPath: '/assets/images',
+                httpGeneratedImagesPath: '/assets/images/generated',
+                httpFontsPath: '/assets/fonts',
                 relativeAssets: false,
                 assetCacheBuster: false,
                 raw: 'Sass::Script::Number.precision = 10\n'
             },
             dist: {
                 options: {
-                    generatedImagesDir: '<%= config.dist %>/images/generated'
+                    generatedImagesDir: '<%= config.dist %>/assets/images/generated'
                 }
             },
             server: {
@@ -240,9 +243,9 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     src: [
-                        '<%= config.dist %>/src/{,*/}*.js',
+                        '<%= config.dist %>/app/{,*/}*.js',
                         '<%= config.dist %>/css/{,*/}*.css',
-                        '<%= config.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+                        '<%= config.dist %>/assets/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                         // '<%= config.dist %>/fonts/*'
                     ]
                 }
@@ -272,7 +275,7 @@ module.exports = function(grunt) {
         // Note: https://github.com/yeoman/grunt-usemin/issues/368#issuecomment-52153636
         cssmin: {
             options: {
-                // root: '<%= config.app %>'
+              // root: '<%= config.app %>'
               target: '.tmp/css/{,*/}*.css',
               relativeTo: '.tmp/css/'
             }
@@ -282,29 +285,37 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= config.app %>/images',
+                    cwd: '<%= config.app %>/assets/images',
                     src: '{,*/}*.{png,jpg,jpeg,gif}',
-                    dest: '<%= config.dist %>/images'
+                    dest: '<%= config.dist %>/assets/images'
                 }]
             }
         },
 
-        htmlmin: {
-            dist: {
-                options: {
-                    collapseWhitespace: true,
-                    collapseBooleanAttributes: true,
-                    removeCommentsFromCDATA: true,
-                    removeOptionalTags: true
-                },
-                files: [{
-                    expand: true,
-                    cwd: '<%= config.dist %>',
-                    src: ['*.html', 'src/{,*/}*.html'],
-                    dest: '<%= config.dist %>'
-                }]
-            }
-        },
+        /*
+         * Need to do more research on how to distribute partials into the
+         * correct directory.
+         */
+
+        // htmlmin: {
+        //     dist: {
+        //         options: {
+        //             collapseWhitespace: true,
+        //             collapseBooleanAttributes: true,
+        //             removeCommentsFromCDATA: true,
+        //             removeOptionalTags: true
+        //         },
+        //         files: [{
+        //             expand: true,
+        //             cwd: '<%= config.dist %>',
+        //             src: [
+        //               '*.html',
+        //               '/{,*/}*.html'
+        //             ],
+        //             dest: '<%= config.dist %>'
+        //         }]
+        //     }
+        // },
 
         // ngmin tries to make the code safe for minification automatically by
         // using the Angular long form for dependency injection. It doesn't work on
@@ -332,21 +343,21 @@ module.exports = function(grunt) {
                         '*.{ico,png,txt}',
                         '.htaccess',
                         '*.html',
-                        'src/{,*/}*.html',
-                        'images/{,*/}*.{webp}',
-                        'fonts/{,*/}*.*'
+                        'app/{,*/}*.html',
+                        'assets/images/{,*/}*.{webp}',
+                        'assets/fonts/{,*/}*.*'
                         //'fonts/*'
                     ]
                 }, {
                     expand: true,
-                    cwd: '.tmp/images',
-                    dest: '<%= config.dist %>/images',
+                    cwd: '.tmp/assets/images',
+                    dest: '<%= config.dist %>/assets/images',
                     src: ['generated/*']
                 }]
             },
             styles: {
                 expand: true,
-                cwd: '<%= config.app %>/css',
+                cwd: '<%= config.app %>/styles/css',
                 dest: '.tmp/css/',
                 src: '{,*/}*.css'
             }
