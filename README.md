@@ -1,8 +1,8 @@
-# ASAP
+# ngBase
 
-**A Sassy Angular Plate**
+**Angular Base 1.0**
 
-Is the Bee's Knees of Angular starter kits. It's based off [Modular Design](http://en.wikipedia.org/wiki/Modular_design) – with [SMACSS](http://smacss.com/) at its core. It incorporates other open-source projects including Bootstrap, jQuery, and Animate.css which are maintained via BowerJS. A GruntJS configuration has also been implemented and provides common build processes including SASS, Compass, Compile, CSSMin, HTMLHint, Concatenation, Uglify, Watch and more.
+An Angular starter kits. Based off [Modular Design](http://en.wikipedia.org/wiki/Modular_design) – with [SMACSS](http://smacss.com/) at its core. It incorporates other open-source projects including Bootstrap, jQuery, and Animate.css which are maintained via BowerJS. A GruntJS configuration has also been implemented and provides common build processes including SASS, Compass, Compile, CSSMin, HTMLHint, Concatenation, Uglify, Watch and more.
 
 ## Project Dependencies
 
@@ -176,7 +176,7 @@ A collection of methods and techniques joined with best practices, covering a mu
 
 ## Credits
 
-ASAP is based on the amazing work of the following rockstars & projects.
+Project based on the amazing work of the following rockstars & projects.
 
 - [AngularJS](https://angularjs.org/)
 - [Sass 3.3](http://sass-lang.com/)

@@ -1,5 +1,5 @@
 {
-    "name": "asap",
+    "name": "ng-base",
     "version": "0.0.1",
     "description": "A Angular starter kit based on a Scalable and Modular Architecture",
     "license": "MIT",
@@ -10,10 +10,10 @@
     "scripts": {
         "test": "test"
     },
-    "bugs": "https://github.com/nauerster/asap/issues",
+    "bugs": "https://github.com/nauerster/ng-base/issues",
     "repository": {
         "type": "git",
-        "url": "git@github.com:nauerster/asap.git"
+        "url": "git@github.com:nauerster/ng-base.git"
     },
     "keywords": [
         "angular",
