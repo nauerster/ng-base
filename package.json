@@ -10,6 +10,7 @@
     "scripts": {
         "test": "test"
     },
+    "bugs": "https://github.com/nauerster/asap/issues",
     "repository": {
         "type": "git",
         "url": "git@github.com:nauerster/asap.git"
