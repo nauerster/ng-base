@@ -13,8 +13,8 @@
 // Variables
 // ==========================================================================
 
-$button__padding                    : 0.375rem 0.75rem !default
-$button__font--family               : 'Open Sans'
+$button__padding                    : rem(8) rem(14) !default
+$button__font--family               : $font__default
 
 
 // [1] Structure the button
@@ -39,7 +39,7 @@ $button__font--family               : 'Open Sans'
 .btn
   @extend %button
   +size(auto, auto)
-  +font-size(0.875)
+  +font-size(14)
   +box-shadow(none)
   font-family: $button__font--family
   border: 1px solid transparent
@@ -53,12 +53,16 @@ $button__font--family               : 'Open Sans'
   padding: $button__padding
 
   &--sm
-    +font-size(0.75)
-    padding: 0.313rem 0.625rem
+    +font-size(12)
+    padding: rem(5) rem(10)
 
   &--lg
-    +font-size(1.125)
-    padding: 0.625rem 1rem
+    +font-size(18)
+    padding: rem(10) rem(16)
+
+  &--jumbo
+    +font-size(36)
+    +padding(16,20)
 
   &--fluid
     width: 100%
@@ -144,3 +148,5 @@ $button__font--family               : 'Open Sans'
   padding: 0
   border: none
   background-color: transparent
+
+

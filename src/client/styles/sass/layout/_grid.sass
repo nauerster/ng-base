@@ -4,76 +4,74 @@
 
 
 
-.column-count
+.gs1 .col,
+.gs2 .col,
+.gs3 .col,
+.gs4 .col,
+.gs5 .col,
+.gs6 .col,
+.gs7 .col,
+.gs8 .col,
+.gs9 .col,
+.gs10 .col,
+.gs11 .col,
+.gs12 .col
 
-  &-1
+  width: 100%
+  float: none
+  display: block
 
-    .column
-      +grid-factory(1, 0)
+  +respond-to($tablet-lg)
+    float: left
+    display: inline-block
+    position: relative
 
-  &-2
+.gs1 .col
+  +respond-to($tablet-lg)
+    +grid-factory(1, 0)
 
-    .column
-      +grid-factory(2, 2%)
+.gs2 .col
+  +respond-to($tablet-lg)
+    +grid-factory(2, 2%)
 
-  &-3
+.gs3 .col
+  +respond-to($tablet-lg)
+    +grid-factory(3, 2%)
 
-    .column
-      +grid-factory(3, 2%)
+.gs4 .col
+  +respond-to($tablet-lg)
+    +grid-factory(4, 2%)
 
-  &-4
+.gs5 .col
+  +respond-to($tablet-lg)
+    +grid-factory(5, 2%)
 
-    .column
-      +grid-factory(4, 2%)
+.gs6 .col
+  +respond-to($tablet-lg)
+    +grid-factory(6, 2%)
 
-  &-5
+.gs7 .col
+  +respond-to($tablet-lg)
+    +grid-factory(7, 2%)
 
-    .column
-      +grid-factory(5, 2%)
+.gs8 .col
+  +respond-to($tablet-lg)
+    +grid-factory(8, 2%)
 
-  &-6
+.gs9 .col
+  +respond-to($tablet-lg)
+    +grid-factory(9, 2%)
 
-    .column
-      +grid-factory(6, 2%)
+.gs10 .col
+  +respond-to($tablet-lg)
+    +grid-factory(10, 2%)
 
-  &-7
+.gs11 .col
+  +respond-to($tablet-lg)
+    +grid-factory(11, 2%)
 
-    .column
-      +grid-factory(7, 2%)
-
-  &-8
-
-    .column
-      +grid-factory(8, 2%)
-
-  &-9
-
-    .column
-      +grid-factory(9, 2%)
-
-  &-10
-
-    .column
-      +grid-factory(10, 2%)
-
-  &-11
-
-    .column
-      +grid-factory(11, 2%)
-
-  &-12
-
-    .column
-      +grid-factory(12, 2%)
+.gs12 .col
+  +respond-to($tablet-lg)
+    +grid-factory(12, 2%)
 
 
-
-.column
-  float: left
-  display: inline-block
-  position: relative
-
-  +respond-to($tablet-sm)
-    width: 100% !important
-    float: none
-    display: block

@@ -9,81 +9,71 @@
 
 
 // Defaults
+//
+// $base__font--size = 16px
 // ==========================================================================
 
 html,
-body
-  font-family: $font__family--sans
+body,
+h1,h2,h3,h4,h5,h6,p
+  font-family: $font__default
+  font-weight: $font__weight--thin
   color: $color__primary
 
-body
-  +font-size($base__font--size)
+html
 
-  // Begin Responsive Sizing
-  +respond-to($mobile-sm)
-    +font-size(0.875)
-
-  +respond-to($mobile-lg)
-    +font-size(0.9375)
-
-  +respond-to($tablet-sm)
-    +font-size(1)
+  font-size: 45%
 
   +respond-to($tablet-lg)
-    +font-size(1.063)
+    font-size: 55%
 
-  +respond-to($screen-sm)
-    +font-size(1.125)
+  +respond-to($desktop)
+    // font-size is 16px at this point
+    font-size: 62.5%
 
-  +respond-to($screen-lg)
-    +font-size(1.188)
-
-  +respond-to($screen-xl)
-    +font-size(1.25)
-
-  +respond-to($screen-xxl)
-    +font-size(1.313)
+  +respond-to($widescreen)
+    font-size: 72%
 
 
-// Titles, Headlines, and Headings
-// title = 36px
-// heading = 30px | lg = 24px | md = 18px | sm = 14px
-// headline = 21px
+// Intro, Titles, Headlines, and Headings
+// Font sizes are converted to rem values (i.e., 70px = 4.375rem)
 // ==========================================================================
 
-h1,
+h1,h2,h3,h4,h5,h6,p
+  line-height: $base__line-height
+
+.intro
+  +font-size(70)
+
 .title
-  +font-size(2.25)
+  +font-size(50)
 
-h2,
 .heading
-  +font-size(1.875)
+  +font-size(40)
 
-h3,
-.heading--lg
-  +font-size(1.5)
-
-h4,
-.heading--md
-  +font-size(1.125)
-
-h5,
-.heading--sm
-  +font-size(0.875)
-
-h6,
-.heading--xs
-  +font-size(0.75)
+.heading--secondary
+  +font-size(30)
 
 .headline
-  +font-size(1.313)
+  +font-size(21)
+  color: $color__secondary--shaded
+  font-weight: $font__weight--light
 
+  +respond-to($tablet-lg)
+    font-weight: $font__weight--thin
 
 // Emphasize Text
 // ==========================================================================
 
+.branding
+  font-family: $font__logo
+
 .callout
-  font-weight: bold
+  +font-size(14)
+  font-weight: $font__weight--bold
+
+  &--caps
+    @extend %all-caps
 
 .underline
   text-decoration: underline
@@ -92,29 +82,44 @@ h6,
   background-color: $color__highlight--yellow
 
 
+// Text Colors
+// ==========================================================================
+
+.inverse
+  color: $color__inverse
+
+
 // Subheading Ex: <h2><small>Subtitle</small></h2>
 // ==========================================================================
 
 small,
-.subcopy
+.subheading
   font-size: 65%
 
 
-// Paragraphs
+// Content
 // ==========================================================================
 
 .content__body
-  +font-size(0.875)
+  +font-size(18)
+  line-height: $base__line-height
+  color: $color__secondary--shaded
+  font-weight: $font__weight--light
+
+  +respond-to($tablet-lg)
+    +font-size(18)
+    line-height: 1.5em
+    font-weight: $font__weight--thin
 
   &--sm
-    +font-size(0.75)
+    +font-size(12)
 
 
 // Code Blocks
 // ==========================================================================
 
 .code
-  +font-size(0.75)
+  +font-size(12)
   @extend %word-wrap
   font-weight: $font__weight--light
   font-family: $font__family--monospace
@@ -127,13 +132,41 @@ small,
 
 .icon
 
-  +font-size(0.875)
+  +font-size(14)
 
   &--sm
-    +font-size(0.75)
+    +font-size(12)
 
   &--md
-    +font-size(1.125)
+    +font-size(18)
 
   &--lg
-    +font-size(1.5)
+    +font-size(24)
+
+
+// Icon Types
+
+.icon.fa
+  font-family: 'FontAwesome'
+
+.icon.ionic
+
+  font-family: 'Ionicons'
+
+
+// Input Placeholders
+// ==========================================================================
+
+\::-webkit-input-placeholder
+  color: $color__input
+
+\:-ms-input-placeholder
+  color: $color__input
+
+\::-moz-placeholder
+  color: $color__input
+  opacity: 1
+
+\:-moz-placeholder
+  color: $color__input
+  opacity: 1

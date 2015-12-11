@@ -1,35 +1,54 @@
 // ==========================================================================
 // Mixins
+//
+// [1] SMACSS Theming
+// [2] Media quiries
+// [3] Prefixer
+// [4] IE Specific Styles
+// [5] Sizes
+// [6] Fonts
+// [7] Effects
+// [8] Layout
+// [9] Layout Helper
+// [10] Borders
+// [11] Pseudo Factory
+// [12] Shapes
+// [13] Skins
+// [14] Background Images
+// [15] Opacity & Colors
+// [16] Card Depths
 // ==========================================================================
 
 
 
-// SMACSS Theming
+// [1] SMACSS Theming
 // ==========================================================================
-//
-// Example:
-// .foobar {
-//   background: #ff3377
-//   +theme(theme-name)
-//     background: #663399
-//
 
-//=theme($name)
-  //@if $theme == $name
-    //@content
+/// SMACSS Theming
+/// @param {String} $name - theme name
+/// @example sass - Basic usage
+///   .foobar
+///     background: $color__background
+///     +theme(foo)
+///       background: $color__background--shaded
+
+=theme($name)
+  @if $theme == $name
+    @content
 
 
 
-// Media queries
+// [2] Media queries
 // ==========================================================================
-//
-// Allows you to pass inline media queries
-// Example:
-// .container
-//    width: 50%
-//    +respond-to($tablet-lg)
-//      width: 100%
-//
+
+/// Media Querues - Allows you to pass inline media queries
+/// @param {String} $media - breakpoint
+/// @requires {Varaible}
+/// @example sass - Basic usage
+///   .foobar
+///     width: 50%
+///     +respond-to($tablet-sm)
+///       width: 100%
 
 =respond-to($media)
   @media #{$media}
@@ -37,12 +56,19 @@
 
 
 
-// Prefixer
+// [3] Prefixer
 // ==========================================================================
-//
-// Works well with other mixins
-// @example
-//
+
+/// Prefixer - Works well with other mixins
+/// @param {String} $property - css property
+/// @param {String} $value - property values
+/// @param {String} $prefixes - webkit moz ms o
+/// @example sass - Mixin usage
+///   =transition($props)
+///     +prefixer(transition, $props)
+/// @example sass - Basic usage
+///   .foobar
+///     +transition(all 300ms linear)
 
 =prefixer($property, $value, $prefixes: webkit moz ms o)
 
@@ -53,54 +79,65 @@
 
 
 
-// IE Specific Styles
+// [4] IE Specific Styles
 // ==========================================================================
-//
-// Example:
-// .foobar
-//    &.lt-ie8
-//      +old-ie
-//         { ... }
-//
 
-//=old-ie
-  //@if $old-ie
-    //@content
+/// IE Specific Styles
+/// @example sass
+///   .foobar
+///     &.lt-ie8
+///       +old-ie
+///         { ... }
+
+=old-ie
+  @if $old-ie
+    @content
 
 
 
-// Sizes
+// [5] Sizes
 // ==========================================================================
-//
-// Example:
-// .container
-//    +size(1024px, 500px)
-//
+
+/// Element Sizes
+/// @example sass
+///   .container
+///     +size(1024px, 500px)
+/// @example css
+///   .container { width: 1024px; height: 500px; }
 
 =size($w, $h)
   width: $w
   height: $h
 
-//
-// Example:
-// .container
-//    +font-size(2.4)
-//
-
-=font-size($size: $ms-ratio, $line: $size * 1.25)
-  font-size: ($size * 10) + px
-  line-height: ($line * 10) + px
-  font-size: $size + rem
-  line-height: $line + rem
 
 
+// [6] Fonts
+// ==========================================================================
 
-// Effects
+/// Font Sizes
+/// @example sass
+///   .container
+///     +font-size(18)
+/// @example css
+///   .container { font-size: 1.125rem;}
+
+=font-size($font-size: $base__font--size)
+  +transition(all .2s ease-in-out)
+  font-size: ($font-size) + px
+  font-size: rem-sizing($font-size) + rem
+
+
+
+// [7] Effects
 // ==========================================================================
 
 =transition($props)
   +prefixer(transition, $props)
   //property, duration, method (ex: width 2s linear)
+
+
+=translate($props)
+  +prefixer(transform, translate($props))
 
 
 =rotate($deg)
@@ -117,16 +154,13 @@
 
 
 
-// Layout
+// [8] Layout
 // ==========================================================================
 
-//
-// Position:
-// Assign an element a position
-// Example:
-// .container
-//    +position(abs)
-//
+/// Position - Assign an element a position
+/// @example sass
+///   .container
+///     +position(abs)
 
 =position($position: 'rel')
 
@@ -140,13 +174,10 @@
     position: fixed
 
 
-//
-// Location:
-// Assign an elements exact position
-// Example:
-// .container
-//    +location(topLeft, 10, 20)
-//
+/// Location - Assign an elements exact position
+/// @example sass
+///   .container
+///     +location(topLeft, 10, 20)
 
 =location($location, $vertical: auto, $horizontal: auto)
 
@@ -173,13 +204,10 @@
     left: 0
 
 
-//
-// Middle Center
-// Perfectly center any element - as long as the parent it positioned relative
-// Example:
-// .container
-//    +middle-center
-//
+/// Perfectly center any element - as long as the parent it positioned relative
+/// @example sass
+///   .container
+///     +middle-center
 
 =middle-center($position: 'abs')
   +position($position)
@@ -188,14 +216,10 @@
   +prefixer(transform, translate(-50%, -50%))
 
 
-
-//
-// Grid Factory
-// Builds out a responsive grid system all based on percentages
-// Example:
-// .column
-//    +grid-factory(4, 2%)
-//
+/// Builds out a responsive grid system all based on percentages
+/// @example sass
+///   .column
+///     +grid-factory(4, 2%)
 
 =grid-factory($col-per-row, $margin)
   width: ((100% - (($col-per-row - 1) * $margin)) / $col-per-row)
@@ -208,7 +232,7 @@
 
 
 
-// Layout Helpers
+// [9] Layout Helpers
 // ==========================================================================
 
 
@@ -218,16 +242,76 @@
   @if $alignment and $alignment != none
     vertical-align: $alignment
 
-  //+old-ie
-    //zoom: 1
-    //*display: inline
-    //*vertical-align: auto
+  +old-ie
+    zoom: 1
+    *display: inline
+    *vertical-align: auto
+
+
+/// Vertical Center
+/// @example sass
+///   .dropdown span, dropdown span i
+///     +vertical-center(40px)
+
+=vertical-center($alignment, $height)
+  height: $height
+  line-height: $height
+  +inline-block(middle)
+
+
+=padding-position($side, $amount: $base__padding-size)
+  padding-#{$side}: ($amount) + px
+  padding-#{$side}: rem-sizing($amount) + rem
+
+
+/// Padding
+/// @example sass
+///   .content__body
+///     +padding(20,40)
+
+=padding($padding: $base__padding--size, $pad2: false, $pad3: false, $pad4: false)
+  @if $pad4
+    padding: ($padding) + px ($pad2) + px ($pad3) + px ($pad4) + px
+    padding: rem-sizing($padding) + rem rem-sizing($pad2) + rem rem-sizing($pad3) + rem rem-sizing($pad4) + rem
+  @else if $pad3
+    padding: ($padding) + px ($pad2) + px ($pad3) + px
+    padding: rem-sizing($padding) + rem rem-sizing($pad2) + rem rem-sizing($pad3) + rem
+  @else if $pad2
+    padding: ($padding) + px ($pad2) + px
+    padding: rem-sizing($padding) + rem rem-sizing($pad2) + rem
+  @else
+    padding: ($padding) + px
+    padding: rem-sizing($padding) + rem
+
+
+=margin-position($side, $amount: $base__margin-size)
+  margin-#{$side}: ($amount) + px
+  margin-#{$side}: rem-sizing($amount) + rem
+
+/// Margin
+/// @example sass
+///   .content__body
+///     +padding(20,40)
+
+=margin($margin: $base__margin--size, $mrg2: false, $mrg3: false, $mrg4: false)
+  @if $mrg4
+    margin: ($margin) + px ($mrg2) + px ($mrg3) + px ($mrg4) + px
+    margin: rem-sizing($margin) + rem rem-sizing($mrg2) + rem rem-sizing($mrg3) + rem rem-sizing($mrg4) + rem
+  @else if $mrg3
+    margin: ($margin) + px ($mrg2) + px ($mrg3) + px
+    margin: rem-sizing($margin) + rem rem-sizing($mrg2) + rem rem-sizing($mrg3) + rem
+  @else if $mrg2
+    margin: ($margin) + px ($mrg2) + px
+    margin: rem-sizing($margin) + rem rem-sizing($mrg2) + rem
+  @else
+    margin: ($margin) + px
+    margin: rem-sizing($margin) + rem
 
 
 
-// Borders
+// [10] Borders
 // ==========================================================================
-//
+
 // Example:
 // .container
 //    +border(solid 1 $color-border)
@@ -246,9 +330,9 @@
 
 
 
-// Pseudo Factory
+// [11] Pseudo Factory
 // ==========================================================================
-//
+
 // Example:
 // .container
 //    +pseudo-el(after, 0, 0)
@@ -267,23 +351,22 @@
 
 
 
-// Shapes
+// [12] Shapes
 // ==========================================================================
-//
-// Example:
-// .container
-//    +circle(50)
-//
+
+/// Shapes - Circle
+/// @example:
+///   .container
+///     +circle(50)
 
 =circle($size)
   +radius($size / 2)
 
 
-//
-// Example:
-// .container
-//    +triangle(up, 12, $gray, 5)
-//
+/// Shapes - Triangle
+/// @example:
+///   .container
+///     +triangle(up, 12, $gray, 5)
 
 =triangle($direction, $size, $clr, $offset: 3)
 
@@ -317,12 +400,11 @@
 
 
 
-// Skins
+// [13] Skins
 // ==========================================================================
-//
-// Customises your blocks or buttons with a different background color and/or
-// text color. If no text color is specified it will default to white.
-//
+
+/// Customises your blocks or buttons with a different background color and/or
+/// text color. If no text color is specified it will default to white.
 
 =block-skin($clr)
   border-color: shade($clr, 5%)
@@ -341,13 +423,26 @@
 
 
 
-// Fullscreen Background for < IE8
+// [14] Background Images
 // ==========================================================================
-//
-// Example:
-// .foobar
-//    +fullscreen-bg
-//
+
+
+/// Background Banners
+/// Revisit - not working
+
+=fullwidth-banner($origin: content-box, $position: center, $color: $color__background)
+  @extend %bg-cover
+  background-origin: $origin
+  background-position: $position
+  background-repeat: no-repeat
+  background-color: $color
+
+
+/// Fullscreen Background for < IE8
+/// @example sass
+///   .foobar
+///     +fullscreen-bg
+
 
 =fullscreen-bg($size, $position, $location)
   +size(200%, 200%)
@@ -365,33 +460,64 @@
 
 
 
-// Opacity filter < IE7 Fallback
+// [15] Opacity & Colors
 // ==========================================================================
-//
-// Example:
-// .foobar
-//    +opacity(4)
-//
+
+
+/// Semi-Transparent Colors
+/// @example:
+///   .foobar
+///     +alpha-attr('background-color', rgba(black, 0.3) white)
+
+=alpha-attr($attr, $color, $bg)
+  $percent: alpha($color) * 100%
+  $opaque: opacify($color, 1)
+  $color__solid: mix($opaque, $bg, $percent)
+  #{$attr}: $color__solid
+  #{$attr}: $color
+
+
+/// Opacity filter < IE7 Fallback
+/// @example:
+///   .foobar
+///     +opacity(4)
 
 =opacity($opacity)
   filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})")
   opacity: $opacity
 
-  /* Hack IE6//
+  //Hack IE6
   &.lt-ie7
     filter : alpha(opacity=#{round($opacity * 100)})
     zoom: 1
 
 
 
-// RGBA Fallback
-// ==========================================================================
-//
-// Example:
-// .foobar
-//    +rgba-bg(#F37, .9)
-//
+/// RGBA Fallback
+/// @example:
+///   .foobar
+///     +rgba-bg(#F37, .9)
 
 =rgba-bg($color, $percent)
   background: $color
   background: rgba($color, $percent)
+
+
+
+// [16] Card Depths
+// ==========================================================================
+
+/// Gives a card depth effect.
+/// @param {Number} $depth - depth level (between 1 and 5)
+/// @link http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
+/// @link https://css-tricks.com/snippets/sass/material-shadows-mixin/
+/// @requires {function} top-shadow
+/// @requires {function} bottom-shadow
+
+=card-depth($depth)
+  @if $depth < 1
+    box-shadow: none
+  @else if $depth > 5
+    @warn "Invalid $depth `#{$depth}` for mixin `card`."
+  @else
+    box-shadow: bottom-shadow($depth), top-shadow($depth)
