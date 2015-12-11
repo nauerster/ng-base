@@ -13,8 +13,8 @@
       var vm = this;
 
           vm.page = 'welcome';
-          vm.title = 'Welcome to ASAP';
-          vm.body = 'A Sassy AngularJS Plate';
+          vm.title = 'Welcome to ngBase';
+          vm.body = 'A AngularJS Starter Projects';
 
     }
 

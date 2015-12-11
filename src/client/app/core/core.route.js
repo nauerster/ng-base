@@ -12,8 +12,8 @@
   // see blocks/router-helper.provider.js
   function appRun(routerHelper) {
 
-    // var otherwise = '/404';
-    routerHelper.configureStates(getStates());
+    var otherwise = '/404';
+    routerHelper.configureStates(getStates(), otherwise);
 
   }
 
