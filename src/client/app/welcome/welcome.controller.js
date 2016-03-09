@@ -9,6 +9,7 @@
     .controller('WelcomeCtrl', WelcomeCtrl);
 
     function WelcomeCtrl() {
+      // Controller defined in welcome.route.js
       // we store our controller instance in the vm variable (ViewModel)
       /*jshint validthis: true */
       var vm = this;
