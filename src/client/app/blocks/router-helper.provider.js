@@ -1,3 +1,4 @@
+/* Help configure the state-base ui.router */
 (function() {
 
   'use strict';
@@ -35,13 +36,17 @@
 
       RouterHelper.$inject = ['$location', '$rootScope', '$state'];
 
-      function RouterHelper($location, $rootscope, $state) {
+      function RouterHelper($location, $rootScope, $state) {
 
         var hasOtherwise = false,
             service = {
               configureStates: configureStates,
               getStates: getStates
             };
+
+
+        // see below
+        init();
 
         return service;
 
@@ -63,28 +68,61 @@
 
         }
 
+        // Route cancellation:
+        // On routing error, go to the dashboard.
+        function handleRoutingErrors() {
+          $rootScope.$on('$stateChangeError',
+            function(event, toState, toParams, fromState, fromParams, error) {
+              if (handlingStateChangeError) {
+                return;
+              }
+
+              stateCounts.errors++;
+              handlingStateChangeError = true;
+
+              var destination = (toState && (toState.title || toState.name || toState.loadedTemplateUrl)) || 'unknown target';
+
+                  console.log(destination);
+
+              var msg = 'Error routing to ' + destination + '. ' + (error.data || '') + '. <br/>' + (error.statusText || '') + ': ' + (error.status || '');
+
+                  console.log(msg);
+
+              $location.path('/');
+            }
+          );
+        }
+
+
+        function init() {
+          handleRoutingErrors();
+          updateDocTitle();
+
+        }
+
+
         function getStates() {
 
           return $state.get();
 
         }
 
+        function updateDocTitle() {
+
+          $rootScope.$on('$stateChangeSuccess',
+            function(event, toState, toParams, fromState, fromParams) {
+
+              var title = config.docTitle + ' ' + (toState.title || '');
+
+              $rootScope.title = title; // data bind to <title>
+
+            }
+          );
+        }
       }
 
     }
 
 })();
 
-
-
-/*
- * Research Links:
- *
- * https://github.com/johnpapa/angular-styleguide#naming
- *
- * https://github.com/johnpapa/ng-demos/blob/master/modular/src/client/app/blocks/router/routehelper.js
- *
- * https://github.com/MSakamaki/angular-spa/blob/master/app/config.route.js
- *
- * http://www.nuget.org/packages/hottowel.angular
- */
+// Reference: https://github.com/johnpapa/generator-hottowel/blob/master/app/templates/src/client/app/blocks/router/router-helper.provider.js
