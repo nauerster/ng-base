@@ -1,10 +1,20 @@
 # ngBase
 
-**Angular Base 1.0**
+An opinionated kickerstarter for AngularJS [1.x]. Based off [Modular Design](http://en.wikipedia.org/wiki/Modular_design) – with [SMACSS](http://smacss.com/) at its core. It incorporates other open-source projects which can be maintained via BowerJS or NPM. A GruntJS configuration has also been implemented and provides common build processes including SASS, Compass, Compile, CSSMin, HTMLHint, Concatenation, Uglify, Watch and more.
 
-An Angular starter kits. Based off [Modular Design](http://en.wikipedia.org/wiki/Modular_design) – with [SMACSS](http://smacss.com/) at its core. It incorporates other open-source projects including Bootstrap, jQuery, and Animate.css which are maintained via BowerJS. A GruntJS configuration has also been implemented and provides common build processes including SASS, Compass, Compile, CSSMin, HTMLHint, Concatenation, Uglify, Watch and more.
 
-## Project Dependencies
+## Table of Content
+
+1. [Getting Started](#getting-started)
+1. [Fire It Up](#fire-it-up)
+1. [Architecture](#architecture)
+1. [Todo](#todo)
+
+
+
+## Getting Started
+
+#### Step 1: Install Dependencies
 
 1. [node](http://nodejs.org/): follow the link and click the button
 2. [ruby](https://www.ruby-lang.org/en/installation/): this comes pre-installed on macs
@@ -12,42 +22,71 @@ An Angular starter kits. Based off [Modular Design](http://en.wikipedia.org/wiki
 4. `npm install -g grunt-cli`: installs grunt and grunt-cli globally
 5. `npm install -g bower`: installs bower globally
 
-**Note:**
+> Note:
+> * Depending on your permissions setup, you might need to prefix each command with `sudo` (use with caution)
+> * All user level installs: `cd ~` will put you at your user level
 
-* Depending on your permissions setup, you might need to prefix each command with `sudo` (use with caution)
-* All user level installs: `cd ~` will put you at your user level
 
-## Getting Started
+#### Step 2: Clone Project
 
-1. Fork & clone the git repo, or download zip file directly.
-2. In terminal/Command line, navigate to the root directory (where Gruntfile.js is located)
-	* install node modules: `npm install`
-	* install bower packages: `bower install`
-3. In the same directory run the following command
-	* `grunt serve`: runs all dev task
-	* `grunt test`: runs all jasmine unit tests
-  * `grunt build`: runs build tasks that minify & concat code and outputs the files to the `/dist` directory.
+You'll need to clone this repository so that its on your local computer.
 
+```sh
+$ cd /path/to/your/repo
+$ git clone git@github.com:nauerster/ng-base.git (SSH Method)
+$ git clone https://github.com/nauerster/ng-base.git (HTTPS Method)
+
+```
+
+#### Git Commnands:
+
+> * `git add -A`												: stages all files to commit (locally)
+> * `git commit -am "Commit message"`		: commits all files with a description
+> * `git push origin {branch name}`			: push committed files to repository
+> * `git branch {new branch}`						: creates a new working branch
+> * `git checkout branch`								: switches you to your new branch
+
+
+#### Installation:
+
+> Wait! Did you install the aforementioned dependencies?
+
+In Terminal/Command Line, navigate to the root directory (same level as package.json & bower.json)
+
+```sh 
+
+	install node modules						: $ npm install
+	install vendor dependencies			: $ bower install
+
+```
+
+## Fire It Up:
+
+In the same directory run the following commands:
+
+```sh
+
+	$ grunt serve			: kick's off the 'watch' task. The watch task will continue to run until you quit it (ctrl + c).
+	$ node bin/www		: start's the node server. This command need's to run at the server level (e.g., src/server).
+	$ grunt build			: will run all the same dev tasks, but will compress our css file for final release.
+
+```
 
 ## Directory Structure
 
-**Note:**
+> Note:
 
-  * Again, this project is based off [Modular Design](http://en.wikipedia.org/wiki/Modular_design).
-  * Files are grouped by feature rather than type, making it easier to find files related to a feature, which can help speed up the develoment cycle and minimize confusion.
+> - Again, this project is based off [Modular Design](http://en.wikipedia.org/wiki/Modular_design).
+> - Files are grouped by feature rather than type, making it easier to find files related to a feature, which can help speed up the develoment cycle and minimize confusion.
+
+
+## Architecture
 
 
 #### ToDo
 
 - [] Import latestet sass-base
 - [] Add Project Audit
-
-
-## Styles Guides
-
-A collection of methods and techniques joined with best practices, covering a multitude of different languages.
-
-[Styleguides](https://github.com/nauerster/styleguides)
 
 
 ## Credits
