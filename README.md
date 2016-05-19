@@ -22,7 +22,7 @@ An opinionated kickerstarter for AngularJS [1.x]. Based off [Modular Design](htt
 4. `npm install -g grunt-cli`: installs grunt and grunt-cli globally
 5. `npm install -g bower`: installs bower globally
 
-> Note:
+
 > * Depending on your permissions setup, you might need to prefix each command with `sudo` (use with caution)
 > * All user level installs: `cd ~` will put you at your user level
 
@@ -40,11 +40,14 @@ $ git clone https://github.com/nauerster/ng-base.git (HTTPS Method)
 
 #### Git Commnands:
 
-> * `git add -A`												: stages all files to commit (locally)
-> * `git commit -am "Commit message"`		: commits all files with a description
-> * `git push origin {branch name}`			: push committed files to repository
-> * `git branch {new branch}`						: creates a new working branch
-> * `git checkout branch`								: switches you to your new branch
+```sh
+	$ git add -A													: stages all files to commit (locally)
+	$ git commit -am "Commit message"			: commits all files with a description
+	$ git push origin {branch name}				: push committed files to repository
+	$ git branch {new branch}							: creates a new working branch
+	$ git checkout branch									: switches you to your new branch
+
+```
 
 
 #### Installation:
@@ -73,8 +76,6 @@ In the same directory run the following commands:
 ```
 
 ## Directory Structure
-
-> Note:
 
 > - Again, this project is based off [Modular Design](http://en.wikipedia.org/wiki/Modular_design).
 > - Files are grouped by feature rather than type, making it easier to find files related to a feature, which can help speed up the develoment cycle and minimize confusion.
