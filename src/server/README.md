@@ -19,11 +19,11 @@ Include any server side setup documentation here.
 
 ```sh
 
-	Created		: yyyy/mm/dd
-	Name			: app-name
-	IP				: 00.00.0.000
-	User			: admin
-	Password	: 1234
+	Created   : yyyy/mm/dd
+	Name      : app-name
+	IP        : 00.00.0.000
+	User      : admin
+	Password  : 1234
 
 ```
 
@@ -32,8 +32,8 @@ Include any server side setup documentation here.
 
 ```sh
 
-	Name			: devadmin
-	Password	: 1234
+	Name      : devadmin
+	Password  : 1234
 
 ```
 
@@ -42,9 +42,9 @@ Include any server side setup documentation here.
 
 ```sh
 
-	Bucket		: bucket-name
-	Access		: access-key
-	Secret		: secret-key
+	Bucket    : bucket-name
+	Access    : access-key
+	Secret    : secret-key
 
 ```
 
@@ -53,9 +53,9 @@ Include any server side setup documentation here.
 
 ```sh
 
-	Start Forever		: $ PORT=8080 forever start -al forever.log -ao out.log -ae err.log bin/www
+	Start Forever   : $ PORT=8080 forever start -al forever.log -ao out.log -ae err.log bin/www
 
-	Stop Forever		: $ forever stop bin/www
+	Stop Forever    : $ forever stop bin/www
 
 ```
 
