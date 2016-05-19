@@ -32,9 +32,9 @@ An opinionated kickerstarter for AngularJS [1.x]. Based off [Modular Design](htt
 You'll need to clone this repository so that its on your local computer.
 
 ```sh
-$ cd /path/to/your/repo
-$ git clone git@github.com:nauerster/ng-base.git (SSH Method)
-$ git clone https://github.com/nauerster/ng-base.git (HTTPS Method)
+	$ cd /path/to/your/repo
+	$ git clone git@github.com:nauerster/ng-base.git (SSH Method)
+	$ git clone https://github.com/nauerster/ng-base.git (HTTPS Method)
 
 ```
 
@@ -59,7 +59,7 @@ In Terminal/Command Line, navigate to the root directory (same level as package.
 ```sh 
 
 	$ npm install         : installs node modules
-	$ bower install       : install vendor dependencies
+	$ bower install       : installs vendor dependencies
 
 ```
 

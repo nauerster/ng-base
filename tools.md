@@ -47,6 +47,21 @@ Bower.
 Don't worry about knowing Node.js in order to use `ngBase`; Grunt is
 where the magic happens.
 
+## SASS
+
+> Syntactically Awesome StyleSheets
+
+[Sass](http://sass-lang.com/) is an extension of CSS that adds power and elegance to the basic language. It allows you to use variables, nested rules, mixins, inline imports, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized, and get small stylesheets up and running quickly, particularly with the help of the Compass style library.
+
+#### Features
+
+  * Fully CSS-compatible
+  * Language extensions such as variables, nesting, and mixins
+  * Many useful functions for manipulating colors and other values
+  * Advanced features like control directives for libraries
+  * Well-formatted, customizable output
+
+
 ## Grunt.js
 
 [Grunt](http://gruntjs.com) is a JavaScript task runner that runs on top of
@@ -87,15 +102,13 @@ little more advanced, here's what you'll find.
 First, we tell Grunt which tasks we might want to use:
 
 ```js
-// ...
-grunt.loadNpmTasks('grunt-recess');
-grunt.loadNpmTasks('grunt-contrib-clean');
-grunt.loadNpmTasks('grunt-contrib-copy');
-grunt.loadNpmTasks('grunt-contrib-jshint');
-// ...
+
+  // Load grunt tasks automatically
+  require('load-grunt-tasks')(grunt);
+
 ```
 
-Each of these tasks must already be installed. Remember the dependencies from
+Each tasks must already be installed. Remember the dependencies from
 `package.json` that NPM installed for us? Well, this is where they get used!
 
 Then we get the opportunity to tell the tasks to behave like we want by
@@ -105,14 +118,14 @@ configuration properties of their own name. For example, the `clean` task just
 takes an array of files to delete when the task runs:
 
 ```js
-clean: [ '<%= build_dir %>', '<%= compile_dir %>' ],
+  clean: [ '<%= build_dir %>', '<%= compile_dir %>' ],
 ```
 
 In Grunt, the `<%= varName %>` is a way of re-using configuration variables.
 In the `build.config.js`, we defined what `build_dir` meant:
 
 ```js
-build_dir: 'build',
+  build_dir: 'build',
 ```
 
 When the clean task runs, it will delete the `build/` folder entirely so that
@@ -127,16 +140,16 @@ example, we could do the build by running all of the separate tasks that we
 installed from NPM and configured as above:
 
 ```sh
-$ grunt clean
-$ grunt html2js
-$ grunt jshint
-$ grunt karma:continuous
-$ grunt concat
-$ grunt ngmin:dist
-$ grunt uglify
-$ grunt recess
-$ grunt index
-$ grunt copy
+  $ grunt clean
+  $ grunt html2js
+  $ grunt jshint
+  $ grunt karma:continuous
+  $ grunt concat
+  $ grunt ngmin:dist
+  $ grunt uglify
+  $ grunt recess
+  $ grunt index
+  $ grunt copy
 ```
 
 But how automated is that? So instead we define a composite task that executes
@@ -144,8 +157,8 @@ all that for us. The commands above make up the `default` tasks, which can be
 run by typing *either* of these commands:
 
 ```js
-$ grunt
-$ grunt default
+  $ grunt
+  $ grunt default
 ```
 
 We also define the `watch` task discussed earlier. This is covered in more
@@ -169,19 +182,45 @@ other libraries so that we can manage all of them in one simple place.
 `ngBase` comes with a `bower.json` file that looks something like this:
 
 ```js
-{
-  "name": "ng-boilerplate",
-  "version": "0.2.0-SNAPSHOT",
-  "devDependencies": {
-    "angular": "~1.0.7",
-    "angular-mocks": "~1.0.7",
-    "bootstrap": "~2.3.2",
-    "angular-bootstrap": "~0.3.0",
-    "angular-ui-router": "~0.0.1",
-    "angular-ui-utils": "~0.0.3"
-  },
-  "dependencies": {}
-}
+  {
+    "name": "ng-base",
+    "version": "0.0.1",
+    "description": "A Angular starter kit based on a Scalable and Modular Architecture",
+    "license": "MIT",
+    "author": {
+      "name": "Eric Knauer"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git@github.com:nauerster/ng-base.git"
+    },
+    "keywords": [
+      "angular",
+      "grunt",
+      "SASS",
+      "Bootstrap"
+    ],
+    "dependencies": {
+      "angular": "~1.3.7",
+      "angular-base64": "~2.0.3",
+      "angular-ui-bootstrap-bower": "~0.10.0",
+      "angular-ui-router": "~0.2.13",
+      "animate.css": "~3.1.1",
+      "es5-shim": "~2.1.0",
+      "jquery": ">= 1.9.0",
+      "json3": "~3.2.6",
+      "ng-table": "~0.3.3",
+      "restangular": "~1.4.0"
+    },
+    "devDependencies": {
+      "angular-mocks": "1.2.15",
+      "angular-scenario": "1.2.15"
+    },
+    "resolutions": {
+      "angular": "~1.3.7"
+    },
+    "appPath": "src/client"
+  }
 ```
 
 This file is fairly self-explanatory; it gives the package name and version
@@ -189,10 +228,10 @@ This file is fairly self-explanatory; it gives the package name and version
 dependencies our application needs in order to work. If we simply call
 
 ```sh
-$ bower install
+  $ bower install
 ```
 
-it will read these three dependencies and install them into the `vendor/` folder
+it will read in the above dependencies and install them into the `vendor/` folder
 (along with any dependencies they have) so that we can use them in our app. If
 we want to add a new package like AngularUI's
 [ngGrid](http://angular-ui.github.io/ng-grid/), then we can tell Bower to
@@ -200,7 +239,7 @@ install that from the web, place it into the `vendor/` folder for us to use, and
 then add it as a dependency to `bower.json`:
 
 ```js
-$ bower install angular-grid --save-dev
+  $ bower install angular-grid --save-dev
 ```
 
 Bower can also update all of our packages for us at a later date, though that
@@ -213,11 +252,4 @@ installed with Bower (or placed in the `vendor/` directory manually) *must* be
 added to your `build.config.js` file manually; look for the Bower libs included
 in `ngBase` by default in there to see what I mean.
 
-## Where to Go From Here
-
-That's it! Now that you have a basic understanding of the tools involved, read
-through the [main README](README.md) to dive another level deeper and apply what
-you've learned for great good. I promise it will all make sense it short order.
-
-Happy programming!
 
