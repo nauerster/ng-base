@@ -41,11 +41,11 @@ $ git clone https://github.com/nauerster/ng-base.git (HTTPS Method)
 #### Git Commnands:
 
 ```sh
-	$ git add -A													: stages all files to commit (locally)
-	$ git commit -am "Commit message"			: commits all files with a description
-	$ git push origin {branch name}				: push committed files to repository
-	$ git branch {new branch}							: creates a new working branch
-	$ git checkout branch									: switches you to your new branch
+	$ git add -A                          : stages all files to commit (locally)
+	$ git commit -am "Commit message"     : commits all files with a description
+	$ git push origin {branch name}       : push committed files to repository
+	$ git branch {new branch}             : creates a new working branch
+	$ git checkout branch                 : switches you to your new branch
 
 ```
 
@@ -58,8 +58,8 @@ In Terminal/Command Line, navigate to the root directory (same level as package.
 
 ```sh 
 
-	install node modules						: $ npm install
-	install vendor dependencies			: $ bower install
+	$ npm install         : installs node modules
+	$ bower install       : install vendor dependencies
 
 ```
 
@@ -69,9 +69,9 @@ In the same directory run the following commands:
 
 ```sh
 
-	$ grunt serve			: kick's off the 'watch' task. The watch task will continue to run until you quit it (ctrl + c).
-	$ node bin/www		: start's the node server. This command need's to run at the server level (e.g., src/server).
-	$ grunt build			: will run all the same dev tasks, but will compress our css file for final release.
+	$ grunt serve     : kick's off the 'watch' task. The watch task will continue to run until you quit it (ctrl + c).
+	$ node bin/www    : start's the node server. This command need's to run at the server level (e.g., src/server).
+	$ grunt build     : will run all the same dev tasks, but will compress our css file for final release.
 
 ```
 
