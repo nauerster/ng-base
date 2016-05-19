@@ -39,6 +39,9 @@ An Angular starter kits. Based off [Modular Design](http://en.wikipedia.org/wiki
 
 #### ToDo
 
+- [] Import latestet sass-base
+- [] Add Project Audit
+
 
 ## Styles Guides
 
