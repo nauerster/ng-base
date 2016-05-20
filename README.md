@@ -11,7 +11,6 @@ An opinionated kickerstarter for AngularJS [1.x]. Based off [Modular Design](htt
 1. [Todo](#todo)
 
 
-
 ## Getting Started
 
 #### Step 1: Install Dependencies
@@ -88,6 +87,7 @@ In the same directory run the following commands:
 
 - [] Import latestet sass-base
 - [] Add Project Audit
+- [] Write out best practices, guidelines and design patterns
 
 
 ## Credits

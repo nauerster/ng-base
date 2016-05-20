@@ -377,6 +377,39 @@ module.exports = function(grunt) {
             ]
         },
 
+        // Creates environment variables (i.e. points to seperate API endpoints)
+        // ngconstant: {
+        //   // Options for all targets
+        //   options: {
+        //     space: ' ',
+        //     wrap: "'use strict';\n\n {%= __ngModule %}",
+        //     name: 'ServiceEndpoint'
+        //   },
+        //   // Environment targets
+        //   development: {
+        //     options: {
+        //       dest: '<%= config.app %>/js/globals/api.config.js'
+        //     },
+        //     constants: {
+        //       ENV: {
+        //         name: 'development',
+        //         apiEndpoint: 'http://localhost:60001/'
+        //       }
+        //     }
+        //   },
+        //   production: {
+        //     options: {
+        //       dest: '<%= config.app %>/js/globals/api.config.js'
+        //     },
+        //     constants: {
+        //       ENV: {
+        //         name: 'production',
+        //         apiEndpoint: 'http://api.livesite.com'
+        //       }
+        //     }
+        //   }
+        // },
+
         // Test settings
         karma: {
             unit: {
@@ -394,6 +427,7 @@ module.exports = function(grunt) {
 
         grunt.task.run([
             'clean:server',
+            //'ngconstant:development',
             'bowerInstall',
             'concurrent:server',
             'autoprefixer',
@@ -417,6 +451,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
+        //'ngconstant:production',
         'bowerInstall',
         'useminPrepare',
         'concurrent:dist',
