@@ -1,64 +1,73 @@
 {
-    "name": "ng-base",
-    "version": "0.0.1",
-    "description": "A Angular starter kit based on a Scalable and Modular Architecture",
-    "license": "MIT",
-    "author": {
-      "name": "Eric Knauer"
-    },
-    "main": "Gruntfile.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "bugs": "https://github.com/nauerster/ng-base/issues",
-    "repository": {
-      "type": "git",
-      "url": "git@github.com:nauerster/ng-base.git"
-    },
-    "keywords": [
-      "angular",
-      "grunt",
-      "sass",
-      "boilerplate",
-      "smacss"
-    ],
-    "dependencies": {
-      "http-proxy": "~1.11.0",
-      "lodash": "^0.9.0"
-    },
-    "devDependencies": {
-      "grunt": "~0.4.4",
-      "grunt-bower-install": "~1.4.0",
-      "grunt-contrib-clean": "~0.5.0",
-      "grunt-contrib-concat": "~0.4.0",
-      "grunt-concurrent": "~0.5.0",
-      "grunt-contrib-connect": "~0.7.1",
-      "grunt-contrib-watch": "~0.6.1",
-      "grunt-usemin": "~2.1.1",
-      "time-grunt": "~0.3.1",
-      "grunt-rev": "~0.1.0",
-      "grunt-newer": "~0.7.0",
-      "grunt-ng-constant": "^1.0.0",
-      "grunt-contrib-htmlmin": "~0.2.0",
-      "grunt-contrib-imagemin": "^0.8.0",
-      "grunt-autoprefixer": "~0.7.3",
-      "grunt-contrib-sass": "~0.7.3",
-      "grunt-csscomb": "~2.0.1",
-      "grunt-contrib-cssmin": "~0.9.0",
-      "grunt-jsbeautifier": "~0.2.7",
-      "grunt-contrib-jshint": "~0.10.0",
-      "jshint-stylish": "~0.1.5",
-      "grunt-ngmin": "0.0.3",
-      "grunt-contrib-uglify": "~0.4.0",
-      "grunt-karma": "~0.8.3",
-      "karma-ng-html2js-preprocessor": "~0.1.0",
-      "karma-ng-scenario": "~0.1.0",
-      "karma-chrome-launcher": "~0.1.3",
-      "karma-jasmine": "~0.1.5",
-      "load-grunt-tasks": "~0.4.0",
-      "grunt-connect-proxy": "~0.2",
-      "grunt-contrib-copy": "~0.5.0",
-      "grunt-contrib-compass": "~0.7.2",
-      "node-bourbon": "^4.2.3",
-    }
+  "name": "ng-base",
+  "version": "0.0.1",
+  "description": "A Angular starter kit based on a Scalable and Modular Architecture",
+  "license": "MIT",
+  "author": {
+    "name": "Eric Knauer"
+  },
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "start": "node src/server/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bugs": "https://github.com/nauerster/ng-base/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nauerster/ng-base.git"
+  },
+  "keywords": [
+    "angular",
+    "grunt",
+    "sass",
+    "boilerplate",
+    "smacss"
+  ],
+  "dependencies": {
+    "http-proxy": "~1.11.0",
+    "lodash": "~0.9.0",
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "body-parser": "^1.15.1",
+    "grunt": "~0.4.4",
+    "grunt-autoprefixer": "~0.7.3",
+    "grunt-bower-install": "~1.4.0",
+    "grunt-concurrent": "~0.5.0",
+    "grunt-connect-proxy": "~0.2",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-compass": "~0.7.2",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-connect": "~0.7.1",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-cssmin": "~0.9.0",
+    "grunt-contrib-htmlmin": "~0.2.0",
+    "grunt-contrib-imagemin": "^0.8.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-sass": "~0.7.3",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-csscomb": "~2.0.1",
+    "grunt-express-server": "^0.5.3",
+    "grunt-jsbeautifier": "~0.2.7",
+    "grunt-karma": "~0.12.0",
+    "grunt-newer": "~0.7.0",
+    "grunt-ng-constant": "^1.1.0",
+    "grunt-ngmin": "0.0.3",
+    "grunt-rev": "~0.1.0",
+    "grunt-usemin": "~2.1.1",
+    "jshint-stylish": "~0.1.5",
+    "karma": "^0.13.2",
+    "karma-chrome-launcher": "~0.1.3",
+    "karma-jasmine": "~0.1.6",
+    "karma-ng-html2js-preprocessor": "~0.1.0",
+    "karma-ng-scenario": "~0.1.0",
+    "load-grunt-tasks": "~0.4.0",
+    "node-bourbon": "^4.2.3",
+    "time-grunt": "~0.3.1",
+    "xml2js": "^0.4.16"
+  }
 }
