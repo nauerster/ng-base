@@ -4,7 +4,6 @@
 
 You can initially fill this out *before* the build of your project, and then update it as you move through to have an at-a-glance list of information that you can constantly evaluate.
 
-
 ## Introduction:
 
 1. Define all definitions, acronyms and abbreviations to be used in the document
@@ -40,6 +39,7 @@ You can initially fill this out *before* the build of your project, and then upd
 - [] Usability (screens, view modes, menus, etc)
 - [] App’s collaboration with the server, including detailed description of the app-server interaction mechanism, protocols and likewise data
 - [] Data caching for offline work if required
+- [] User roles
 
 
 
